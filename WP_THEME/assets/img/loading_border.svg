@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 567.17 110">
+  <defs>
+    <style>
+      /* ローディング 線と花 */
+      /* 花 */
+      .flower {
+      fill: #c91933;
+      translate: 0 0.4vw;
+      animation: flower 1.8s forwards;
+      animation-delay: 4.2s;
+      opacity: 0;
+      }
+      @keyframes flower {
+      40% {
+      opacity: 1;
+      translate: 0 0;
+      }
+      60% {
+      opacity: 1;
+      translate: 0 0;
+      }
+      100% {
+      opacity: 0;
+      translate: 0 -1.65vw;
+      }
+      }
+      /* 線 */
+      .border-left, .border-right {
+      fill: none;
+      stroke: #c91933;
+      stroke-miterlimit: 10;
+      stroke-width: 4px;
+      }
+      .border-left {
+      stroke-dasharray: 700;
+      stroke-dashoffset: 700;
+      animation: border_left 4s;
+      }
+      .border-right {
+      opacity: 0;
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      animation: border_right 4s;
+      animation-delay: 1.8s;
+      }
+
+      @keyframes border_left {
+      20% {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      }
+      49% {
+      opacity: 1;
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      }
+      50% {
+      opacity: 0;
+      stroke-dasharray: 700;
+      stroke-dashoffset: 700;
+      }
+      65% {
+      opacity: 1;
+      stroke-dasharray: 700;
+      stroke-dashoffset: 700;
+      }
+      100% {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      }
+      }
+      @keyframes border_right {
+      0% {
+      opacity: 1;
+      }
+      20% {
+      stroke-dashoffset: 700;
+      stroke-dasharray: 700;
+      }
+      49.9% {
+      opacity: 1;
+      stroke-dashoffset: 700;
+      stroke-dasharray: 700;
+      }
+      50% {
+      opacity: 0;
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      }
+      51% {
+      opacity: 1;
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      }
+      65% {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 700;
+      }
+      100% {
+      opacity: 1;
+      stroke-dashoffset: 700;
+      stroke-dasharray: 700;
+      }
+      }
+</style>
+  </defs>
+  <path class="flower"
+    d="M276.35,47.79c.16-.86.25-1.75.25-2.65s-.09-1.79-.25-2.65l-10.63,1.19,8.36-6.68c-1.01-1.47-2.28-2.75-3.75-3.75l-6.68,8.36,1.19-10.63c-.86-.16-1.75-.25-2.65-.25s-1.79.09-2.65.25l1.19,10.63-6.68-8.36c-1.47,1.01-2.75,2.28-3.75,3.75l8.36,6.68-10.63-1.19c-.16.86-.25,1.75-.25,2.65s.09,1.79.25,2.65l10.63-1.19-8.36,6.68c1.01,1.47,2.28,2.75,3.75,3.75l6.68-8.36-1.19,10.63c.86.16,1.75.25,2.65.25s1.79-.09,2.65-.25l-1.19-10.63,6.68,8.36c1.47-1.01,2.75-2.28,3.75-3.75l-8.36-6.68,10.63,1.19Z" />
+  <polyline class="border-left"
+    points="3.09 103.38 136.54 103.38 136.54 39.64 262.11 6.62 427.29 38.72 427.29 103.38 563.04 103.38" />
+  <polyline class="border-right"
+    points="563.04 103.38 427.29 103.38 427.29 38.72 262.11 6.62 136.54 39.64 136.54 103.38 3.09 103.38" />
+</svg>

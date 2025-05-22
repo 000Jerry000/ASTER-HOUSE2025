@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 344.35 318.04">
+  <defs>
+    <style>
+      /* 文字隠し */
+      .hidden{fill:#fff;}
+      /* 文字 */
+      .text{fill:#231815;transform:translate(0,32px);animation:text 0.7s
+      forwards;animation-delay:0.5s;}
+      @keyframes text{
+      100%{transform:translate(0,0);}
+      }
+      /* 花 */
+      .flower{opacity:0;fill:#c9002e;transform-box:fill-box;transform-origin:center
+      center;animation:flower 1.3s forwards;animation-delay:1s;}
+      @keyframes flower{
+      90%{opacity:1;}
+      100%{opacity:1;transform:rotate(225deg);}
+      }
+      /* 線 */
+      .line{fill:none;stroke:#c91933;stroke-miterlimit:10;stroke-width:3px;stroke-linecap:round;animation:line
+      1s forwards;}
+      .line-01{transform:translate(-49px,-27px);stroke-dasharray:120;stroke-dashoffset:120;}
+      .line-02{transform:translate(0,-69px);stroke-dasharray:160;stroke-dashoffset:160;}
+      .line-03{transform:translate(74px,0);stroke-dasharray:200;stroke-dashoffset:200;}
+      .line-04{transform:translate(0,51px);stroke-dasharray:160;stroke-dashoffset:160;}
+      .line-05{transform:translate(-53px,31px);stroke-dasharray:110;stroke-dashoffset:110;}
+      @keyframes line{
+      100%{stroke-dashoffset:0;transform:translate(0,0);}
+      }
+    </style>
+  </defs>
+  <path class="text"
+    d="M221.58,202.46c-10.69.14-18,5.99-18,15.64v15.67h7.34v-14.61c0-7.62,5.92-10.26,12.54-9.34l-1.87-7.36Z" />
+  <rect class="hidden" x="201.78" y="233.83" width="23.87" height="32.2" />
+  <line class="line line-01" x1="161.5" y1="40.02" x2="258.72" y2="93.71" />
+  <line class="line line-02" x1="258.72" y1="93.71" x2="258.72" y2="251.65" />
+  <line class="line line-03" x1="258.72" y1="251.65" x2="65.63" y2="251.65" />
+  <line class="line line-04" x1="65.63" y1="251.65" x2="65.63" y2="93.71" />
+  <line class="line line-05" x1="65.63" y1="93.71" x2="161.5" y2="40.02" />
+  <path class="flower"
+    d="M228.48,183.01c.24-1.29.38-2.62.38-3.98s-.14-2.69-.38-3.98l-15.94,1.79,12.54-10.01c-1.51-2.21-3.42-4.12-5.63-5.63l-10.01,12.54,1.79-15.94c-1.29-.24-2.62-.38-3.98-.38s-2.69.14-3.98.38l1.79,15.94-10.01-12.54c-2.21,1.51-4.12,3.42-5.63,5.63l12.54,10.01-15.94-1.79c-.24,1.29-.38,2.62-.38,3.98s.14,2.69.38,3.98l15.94-1.79-12.54,10.01c1.51,2.21,3.42,4.12,5.63,5.63l10.01-12.54-1.79,15.94c1.29.24,2.62.38,3.98.38s2.69-.14,3.98-.38l-1.79-15.94,10.01,12.54c2.21-1.51,4.12-3.42,5.63-5.63l-12.54-10.01,15.94,1.79Z" />
+</svg>

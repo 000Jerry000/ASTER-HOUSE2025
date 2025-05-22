@@ -1,0 +1,197 @@
+/*
+Theme Name: Aster House
+Theme URI: https://asterhouse.com
+Author: Aster House
+Author URI: https://asterhouse.com
+Description: A custom WordPress theme for Aster House
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: asterhouse
+*/
+
+/* Import other stylesheets */
+@import url('reset.css');
+@import url('common.css');
+@import url('animation.css');
+@import url('tab.css');
+@import url('sp.css');
+
+/* Main styles */
+:root {
+    --main_color: #C91933;
+    --this-site-bold: 500;
+}
+
+.element {
+    font-weight: var(--this-site-bold);
+}
+
+/* Fonts */
+.roboto {
+    font-family: "Roboto", 'Arial','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    -webkit-font-smoothing: antialiased;
+}
+
+.clarendon {
+    font-family: clarendon-text-pro, 'Arial','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+body {
+    font-size: 1.25vw;
+    line-height: 1.5em;
+    overflow: visible !important;
+    color: #000;
+    font-family: "Roboto", 'Arial','Yu Gothic',"游ゴシック体",YuGothic,"游ゴシック Medium", "Yu Gothic Medium",'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em;
+    background: #fff;
+    font-feature-settings: 'palt' 1;
+    word-wrap: break-word;
+    overscroll-behavior: contain;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+    font-weight: 500;
+    font-feature-settings: 'palt' 1;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+/* Header styles */
+.header__top {
+    width: 100%;
+    height: 54.5vw;
+    position: relative;
+    background-image: url(../images/main.jpg);
+    background-size: cover;
+}
+
+.header__wrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header__wrapper .logo {
+    width: 17.44vw;
+    margin: 2.6vw 4.43vw 0;
+    float: left;
+}
+
+.header__wrapper .logo img {
+    width: 100%;
+}
+
+/* Navigation styles */
+.header__top nav {
+    margin: 5px 2.60vw 0;
+    display: flex;
+    float: right;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.header__top nav li a {
+    margin: 5px 0 0 3.91vw;
+    font-size: 1.25vw;
+    font-weight: 450;
+    font-family: "Roboto-Bold","Roboto", sans-serif;
+    transform-origin: right;
+    letter-spacing: 0.05em;
+    list-style: none;
+}
+
+/* Footer styles */
+footer {
+    background: #fff;
+}
+
+footer .info__3col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3.91vw;
+    border-top: 1px solid #000;
+}
+
+footer .footer__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3.91vw;
+    border-top: 1px solid #000;
+}
+
+/* Button styles */
+.btn__more a {
+    display: inline-block;
+    padding: 0.78vw 2.34vw;
+    font-size: 1.04vw;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #fff;
+    border: 1px solid #000;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn__more a:hover {
+    color: #fff;
+    background: #000;
+}
+
+/* Form styles */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.78vw;
+    font-size: 1.04vw;
+    border: 1px solid #000;
+    background: #fff;
+}
+
+.form-btn {
+    display: inline-block;
+    padding: 0.78vw 2.34vw;
+    font-size: 1.04vw;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #000;
+    border: 1px solid #000;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.form-btn:hover {
+    color: #000;
+    background: #fff;
+} 

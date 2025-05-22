@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 606.52 392.25">
+  <defs>
+    <style>
+      /* 人 */
+      .human{opacity:0;transform:translate(0,10px);fill:#fff;stroke:#c9002e;stroke-miterlimit:10;stroke-width:3px;animation:fadeIn
+      0.7s forwards;animation-delay:1.2s;}
+      @keyframes fadeIn{
+      100%{opacity:1;transform:translate(0,0);}
+      }
+      /* 線 */
+      .line{fill:none;stroke:#c91933;stroke-miterlimit:10;stroke-width:3px;stroke-linecap:round;animation:line
+      1s forwards;}
+      .line-01{transform:translate(86px,33px);stroke-dasharray:230;stroke-dashoffset:230;}
+      .line-02{transform:translate(0,68px);stroke-dasharray:200;stroke-dashoffset:200;}
+      .line-03{transform:translate(-94px,0);stroke-dasharray:400;stroke-dashoffset:400;}
+      .line-04{transform:translate(0,-68px);stroke-dasharray:190;stroke-dashoffset:190;}
+      .line-05{transform:translate(68px,-30px);stroke-dasharray:210;stroke-dashoffset:210;}
+      @keyframes line{
+      100%{stroke-dashoffset:0;transform:translate(0,0);}
+      }
+    </style>
+  </defs>
+  <line class="line line-01" x1="506.58" y1="122.32" x2="296.5" y2="41.69" />
+  <line class="line line-02" x1="506.58" y1="312.83" x2="506.58" y2="122.32" />
+  <line class="line line-03" x1="107.29" y1="312.83" x2="506.58" y2="312.83" />
+  <line class="line line-04" x1="107.29" y1="127.08" x2="107.29" y2="312.83" />
+  <line class="line line-05" x1="296.5" y1="41.69" x2="107.29" y2="127.08" />
+  <g class="human">
+    <circle cx="433.04" cy="222.43" r="24.23" transform="translate(117.07 592.78) rotate(-76.72)" />
+    <path d="M396.94,282.76c0-19.94,16.16-36.1,36.1-36.1s36.1,16.16,36.1,36.1" />
+    <circle cx="355.59" cy="231.89" r="19.82" transform="translate(-61.67 153.73) rotate(-22.5)" />
+    <path d="M326.06,281.25c0-16.31,13.22-29.54,29.54-29.54s29.54,13.22,29.54,29.54" />
+  </g>
+</svg>
