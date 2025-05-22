@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <title>アスターハウス</title>
+    <meta name="description" content="" />
+    <meta name=”keywords” content=””>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tab.css" />
+    <link rel="stylesheet" href="css/sp.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/abg4zef.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/instagram-feed.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+
+    <!-- バウンス防止 -->
+<script>
+    ;(function() {
+      const scrollEl = document.scrollingElement || document.body;
+      let startY = 0;
+    
+      scrollEl.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].screenY;
+      }, { passive: true });
+    
+      scrollEl.addEventListener('touchmove', function(e) {
+        const currentY = e.touches[0].screenY;
+        const deltaY   = currentY - startY;
+    
+        // ── 上端バウンス抑制 ──
+        if (scrollEl.scrollTop <= 0 && deltaY > 0) {
+          e.preventDefault();
+          return;
+        }
+    
+        // ── 下端バウンス抑制 ──
+        const maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight;
+        if (scrollEl.scrollTop >= maxScroll && deltaY < 0) {
+          e.preventDefault();
+          return;
+        }
+      }, { passive: false });
+    })();
+  </script>  
+    
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header class="header__page">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/icon_symbol.svg" alt="アスターハウス" class="pc">
+                <img src="images/logo_header_sp.svg" alt="アスターハウス" class="sp">
+            </a>
+        </div>
+        <div class="contact">
+            <a href="contact.html">お問合せ</a>
+        </div>
+        <div class="openbtn1 sp" id="menuButton"><span></span><span></span><span></span></div>
+        <nav id="g-nav">
+            <div class="panel__logo">
+              <a href="index.html"><img src="images/logo_header_sp.svg" alt="アスターハウス" class="sp"></a>
+            </div>
+            <div class="sns">
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_header_youtube.svg" alt="ユーチューブ"></a></li>
+                    <li><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_header_insta.svg" alt="インスタ"></a></li>
+                    <li><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_header_facebook.svg" alt="フェイスブック"></a></li>
+                    <li><a href="#" target="_blank"><img src="images/icon_header_tiktok.svg" alt="ティックトック"></a></li>    
+                </ul>
+            </div>
+            <div id="g-navi-list">
+                <ul>
+                    <li><a href="archive-sell.html">Sell<span class="sp">販売中物件・土地情報</span></a></li>
+                    <li><a href="archive-works.html">Works<span class="sp">過去の実績一覧</span></a></li>
+                    <li><a href="index.html#concept">Concept<span class="sp">コンセプト</span></a></li>
+                    <li><a href="archive-news.html">News<span class="sp">お知らせ</span></a></li>
+                    <li><a href="company.html">About us<span class="sp">私たちについて</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="panel" id="menuPanel">
+
+    </header>
+
+    <div class="ttl fadeIn">
+        <h2>About us<span>私たちについて</span></h2>
+    </div>
+
+    <div class="imgbox__about">
+        <img src="images/about.jpg" alt="アスターハウスについて">
+        <div class="icon__about">
+            <img src="images/icon_about.svg" alt="暮らしのこと、お任せください">
+        </div>
+    </div>
+
+    <article>
+        <div class="accordion">
+            <div class="accordion-item">
+                <h2 class="h2_ttl accordion-header">Company<span>会社概要</span></h2>
+                <div class="accordion-content">
+                    <div class="imgbox50__company">
+                        <object data="images/company01.svg" type="image/svg+xml" class="svg__company01 fadeIn"></object>
+                        <object data="images/company02.svg" type="image/svg+xml" class="svg__company02 fadeIn"></object>
+                        <object data="images/company03.svg" type="image/svg+xml" class="svg__company03 fadeIn"></object>
+                        <object data="images/company04.svg" type="image/svg+xml" class="svg__company04 fadeIn"></object>
+                    </div>
+                    <div class="textbox50 fr">
+                        <dl class="company">
+                            <div class="company-item fadeUp">
+                                <dt>会社名</dt>
+                                <dd>有限会社 アスター</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>所在地</dt>
+                                <dd class="mb2em">〒065-0013<br>札幌市東区北13条東16丁目1-1</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>設立</dt>
+                                <dd>平成元年5月1日</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>資本金</dt>
+                                <dd>3,000万円</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>代表者</dt>
+                                <dd>今野 誉志雄</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>電話番号</dt>
+                                <dd class="tel-link_company">011-214-0455</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt class="company__free">フリーダイヤル</dt>
+                                <dd class="tel-link_company">0120-802-801</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>F A X</dt>
+                                <dd>011-214-0457</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>メール</dt>
+                                <dd>master@aster-estate.com</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>免許番号</dt>
+                                <dd class="mb2em">北海道知事免許（9）4991号<br>
+                                宅建免許 / 北海道知事許可<br class="sp">（般-3）石 第24221号</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>営業内容</dt>
+                                <dd>不動産買取、販売、仲介、リフォーム</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>取引銀行</dt>
+                                <dd class="mb2em">北海道銀行　篠路支店<br>
+                                北陸銀行　麻生支店<br>
+                                北洋銀行　栄町支店<br>
+                                北海道信用金庫　丘珠支店<br>
+                                旭川信用金庫　栄町支店</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>所属団体</dt>
+                                <dd class="mb2em">公益社団法人　<br class="sp">北海道宅地建物取引協会<br>
+                                公益社団法人　<br class="sp">全国宅地建物取引業保証協会</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="company-item fadeUp">
+                                <dt>年商/<br>
+                                営業利益</dt>
+                                <dd class="mb2em">R6.2　22.5億 / 1.5億<br>
+                                R5.2　19.1億 / 1.9億<br>
+                                R4.2　14.4億 / 1.4億</dd>
+                                <div class="line-wrapper"></div>
+                            </div>
+                        </dl>
+                    </div>   
+                </div> 
+            </div>
+        </div>
+    </article>
+
+    <article class="staff-section">
+        <div class="accordion">
+            <div class="accordion-item">
+                <h2 class="h2_ttl accordion-header" id="staffAccHeader">Staff<span>スタッフ紹介</span></h2>
+                <div class="accordion-content" id="staffAcc">
+                    <ul class="staff__card staff-list">
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_fujiki.jpg" alt="">
+                            <div class="type">営業</div>
+                            <div class="name">藤木 栄人<span>Hideto Fujiki</span></div>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_fujiki.jpg" alt="">
+                                    <div class="type">営業</div>
+                                    <div class="name">藤木 栄人<span>Hideto Fujiki</span></div>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>ドライブ、旅行</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>DIY（元大工）</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>笑顔の家づくりを大切にしています。</p>
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_kato.jpg" alt="">
+                            <div class="type">営業</div>
+                            <div class="name">加藤 秀晃<span>Hideaki Kato</span></div>
+                            <p class="qualification">二級建築施工管理技士/<br>住宅ローンアドバイザー</p>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_kato.jpg" alt="">
+                                    <div class="type">営業</div>
+                                    <div class="name">加藤 秀晃<span>Hideaki Kato</span></div>
+                                    <p class="qualification">二級建築施工管理技士/<br>住宅ローンアドバイザー</p>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>BBQ、家庭菜園、建築物や木工家具の鑑賞</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>DIY（元大工）</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>家族の一人一人が、毎日笑顔で暮らせる家づくり。お客様の夢のマイホームづくりをお手伝いいたします。
+                                        不安や疑問を一緒に解決していきながら最高のマイホームにしましょう。休日は家族と一緒に温泉めぐりしています。</p>    
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_takeshima.jpg" alt="">
+                            <div class="type">営業</div>
+                            <div class="name">武島 立昌<span>Tatsuaki Takeshima</span></div>
+                            <p class="qualification"></p>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_takeshima.jpg" alt="">
+                                    <div class="type">営業</div>
+                                    <div class="name">武島 立昌<span>Tatsuaki Takeshima</span></div>
+                                    <p class="qualification"></p>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>子供との散歩</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>料理</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>財閥系不動産会社に6年従事した後に、弊社へ入社いたしました。<br>
+                                        お客様一人ひとりのご希望やライフスタイルに寄り添い、「ご希望に叶う不動産売買」の実現を目指しております。<br>
+                                        どんな些細なことでも構いませんので、ぜひお気軽にご相談ください。</p>    
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_fukumoto.jpg" alt="">
+                            <div class="type">設計</div>
+                            <div class="name">福本 龍一<span>Ryuichi Fukumoto</span></div>
+                            <p class="qualification">二級建築士</p>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_fukumoto.jpg" alt="">
+                                    <div class="type">設計</div>
+                                    <div class="name">福本 龍一<span>Ryuichi Fukumoto</span></div>
+                                    <p class="qualification">二級建築士</p>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>ドライブ、模型作り</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>野球</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>お客様が喜んで長く心地良く住んで頂けるようにを第一に考え、協力業者と共に力を合わせて家作りをしています。
+                                        是非完成したオープンハウスを見に来てください！！</p>
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_funayama.jpg" alt="">
+                            <div class="type">設計</div>
+                            <div class="name">船山 諒<span>Ryo Funayama</span></div>
+                            <p class="qualification">二級建築士</p>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_funayama.jpg" alt="">
+                                    <div class="type">設計</div>
+                                    <div class="name">船山 諒<span>Ryo Funayama</span></div>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>スポーツ観戦、アニメ鑑賞</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>フットサル</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>お客様の理想を形にするため、設計から現場管理まで、精一杯家づくりをお手伝いさせていただきます。</p>
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_hariu.jpg" alt="">
+                            <div class="type">コーディネーター</div>
+                            <div class="name">針生 真莉菜<span>Marina Hariu</span></div>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_hariu.jpg" alt="">
+                                    <div class="type">コーディネーター</div>
+                                    <div class="name">針生 真莉菜<span>Marina Hariu</span></div>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>Netflix、旅行</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>側転</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>理想のお住まいを一緒に楽しく作りましょう！</p>
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <li class="staff-card" data-id="1">
+                            <img src="images/staff_oshiyama.jpg" alt="">
+                            <div class="type">工事</div>
+                            <div class="name">押山 加奈<span>Kana Oshiyama</span></div>
+                            <p class="qualification">二級建築施工管理技士</p>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_oshiyama.jpg" alt="">
+                                    <div class="type">工事</div>
+                                    <div class="name">押山 加奈<span>Kana Oshiyama</span></div>
+                                    <p class="qualification">二級建築施工管理技士</p>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>旅行、愛犬と遊ぶ</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>料理</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>お客様に喜んでいただけるような細かい部分にも気を配ったお家造りができるよう、 しっかりサポートをさせて頂きます！</p>
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li>
+
+                        <!-- <li class="staff-card" data-id="1">
+                            <img src="images/staff_tanaka.jpg" alt="">
+                            <div class="type">工事</div>
+                            <div class="name">田中 守<span>Mamoru Tanaka</span></div>
+                            <p class="qualification">二級建築施工管理技士</p>
+                            <button class="view-btn">View</button>
+                            <div class="card-detail">
+                                <div class="sp">
+                                    <img src="images/staff_oshiyama.jpg" alt="">
+                                    <div class="type">工事</div>
+                                    <div class="name">田中 守<span>Mamoru Tanaka</span></div>
+                                </div>
+                                <div class="staff_modal_fr">
+                                    <h3 class="hobby">Hobby</h3>
+                                    <p>ドライブ、食べること</p>
+                                    <h3 class="skill">Skill</h3>
+                                    <p>ポジティブ思考</p>
+                                    <h3 class="message">Message</h3>
+                                    <p>お客様の理想のお家づくりの一端をお手伝いいたします。是非お任せください。</p>
+                                </div>
+                            </div>
+                            <button class="close-btn">Close</button>
+                        </li> -->
+                    </ul>
+
+                <!-- モーダル -->
+                    <div class="modal" id="modal">
+                        <div class="modal-content">
+                        <button id="modalClose">Close</button>
+                        <div id="modalBody"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <article id="privacy-accordion">
+        <div class="accordion">
+            <div class="accordion-item">
+                <h2 class="h2_ttl accordion-header">Privacy policy<span>個人情報保護方針</span></h2>
+                <div class="accordion-content" id="privacy">
+
+                    <div class="privacy">
+                        <h3>1.お客様の個人情報の取り扱いについて</h3>
+                        <li>お客様のプライバシー、個人情報の保護について最大限の注意を払っております。個人情報をお客様の事前の同意なく第三者に対して開示することはありません。</li>
+                        <li>弊社ではお客様の個人情報を厳重に管理し、第三者に譲渡する事はございません。但し弊社の財産を守る目的において、公的機関より開示請求があった場合等は開示する可能性がございます。</li>
+                        <li>お客様からいただいた個人情報は商品の発送とご連絡以外には一切使用いたしません。</li>
+                        <li>弊社が責任をもって安全に蓄積・保管し、第三者に譲渡・提供することはございません。</li>
+                        <li>弊社では、お客様の個人情報（住所、氏名、メールアドレス、ご購入商品など）を、裁判所・警察機関等、公共機関からの提出要請があった場合以外の第三者に譲渡または利用する事は一切ございません。</li>
+
+                        <h3>2.Google Analyticsの利用について</h3>
+                        <p>当社サイトでは、お客様の当社サイトの訪問状況を把握するためにGoogle社のサービスであるGoogle Analyticsを利用しています。当社のサイトでGoogle Analyticsを利用しますと、当社が発行するクッキーをもとにして、
+                            Google社がお客様の当社サイトの訪問履歴を収集、記録、分析します。当社は、Google社からその分析結果を受け取り、お客様の当社サイトの訪問状況を把握します。Google Analyticsにより収集、記録、分析された
+                            お客様の情報には、特定の個人を識別する情報は一切含まれません。また、それらの情報は、Google社により同社のプライバシーポリシーに基づいて管理されます。Google Analyticsの利用規約に関する説明については
+                            Google Analyticsのサイトを、Google社のプライバシーポリシーに関する説明については同社のサイトをご覧下さい。</p>
+                        <p>[ Google Analyticsの利用規約 ]<br>
+                            <a href="http://www.google.com/analytics/terms/jp.html" target="_blank">http://www.google.com/analytics/terms/jp.html</a></p>
+                        <p class="mb100">[ Googleのプライバシーポリシー ] <br>
+                            <a href="http://www.google.com/intl/ja/policies/privacy/" target="_blank">http://www.google.com/intl/ja/policies/privacy/</a></p>
+
+                        <h3>3.お問合せ窓口</h3>
+                        <p>当社における個人データの取り扱いに関するお問合せは下記の窓口にご連絡ください。</p>
+                        <dl class="privacy__contact">
+                            <div class="contact-item">
+                                <dt>電話番号</dt>
+                                <dd>0120-802-801</dd>
+                            </div>
+                            <div class="contact-item">
+                                <dt>受付時間</dt>
+                                <dd>10:00-18:00<span class="gothic">（水曜日は定休日となっております。）</span></span></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+
+    <footer>
+      <div class="info__3col">
+          <div class="contact">
+              <a href="contact.html">
+                  <div class="contact__inner">
+                      <img src="images/icon_footer_contact.svg" alt="お問合せ">
+                      <img src="images/icon_footer_request.svg" alt="資料請求">
+                      <p>お問合せ / 資料請求<span>Contact</span></p>
+                  </div>    
+              </a>
+          </div>
+          <div class="tel">
+              <a href="tel:0120-802-801">
+                <img src="images/icon_footer_freenumber.svg" alt="フリーダイヤル" class="pc">
+                <img src="images/icon_footer_phone.svg" alt="電話をかける" class="sp">
+                <p class="tel__number pc"><span class="clarendon">Tel.</span>0120-802-801</p><p class="tel__number sp">フリーダイヤル</p>
+                <p class="tel__hours">受付時間 10:00-18:00 / 定休日 水曜日</p>    
+              </a>
+          </div>
+          <div class="consultation">
+              <a href="archive-sell.html#consul">
+                  <div class="consultation__inner">
+                      <img src="images/icon_footer_consul.svg" alt="家づくり相談会">
+                      <p>家づくり相談会<span>Consultation</span></p>
+                  </div>
+              </a>
+          </div>
+      </div>
+      <div class="footer__block">
+          <div class="footer__left">
+              <ul class="footer__logo">
+                  <li><a href="index.html"><img src="images/logo_asterhouse.svg" alt="アスターハウス"></a></li>
+                  <li><a href="https://aster-estate.com" target="_blank"><img src="images/logo_aster.svg" alt="アスター"></a></li>
+                  <li><a href="https://reform.aster-estate.com" target="_blank"><img src="images/logo_rinobe.svg" alt="リノベのアスター"></a></li>
+              </ul>
+          </div>
+          <div class="footer__right">
+              <div class="site__info">
+                  <ul class="page__list">
+                      <li><a href="archive-sell.html">販売中物件・土地情報</a></li>
+                      <li><a href="archive-works.html">過去の施工実績</a></li>
+                      <li><a href="index.html#concept">コンセプト</a></li>
+                      <li><a href="archive-news.html">お知らせ</a></li>
+                      <li><a href="company.html">私たちについて</a></li>
+                      <li class="pc">SNS
+                          <span class="footer__sns"><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_footer_youtube.svg" alt="ユーチューブ"></a></span>
+                          <span class="footer__sns"><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_footer_insta.svg" alt="インスタグラム"></a></span>
+                          <span class="footer__sns"><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_footer_facebook.svg" alt="フェイスブック"></a></span>
+                          <span class="footer__sns"><a href=""><img src="images/icon_footer_tiktok.svg" alt="tiktok"></a></span>
+                      </li>
+                  </ul>
+                  <ul class="page__list">
+                      <li><a href="contact.html">各種お問合せ</a></li>
+                      <li><a href="reserve.html">来場予約</a></li>
+                      <li><a href="company.html#privacy">プライバシーポリシー</a></li>
+                      <li class="sp">SNS
+                          <div class="page__list__sns">
+                              <span class="footer__sns__sp"><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_footer_youtube.svg" alt="ユーチューブ"></a></span>
+                              <span class="footer__sns__sp"><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_footer_insta.svg" alt="インスタグラム"></a></span>
+                              <span class="footer__sns__sp"><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_footer_facebook.svg" alt="フェイスブック"></a></span>
+                              <span class="footer__sns__sp"><a href=""><img src="images/icon_footer_tiktok.svg" alt="tiktok"></a></span>    
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <dl class="company__info">
+                  <dt>所在地</dt>
+                  <dd>〒065-0013<br>　札幌市東区北13条東16丁目1-1</dd>
+                  <dt>営業時間</dt>
+                  <dd>9:00 - 18:00</dd>
+                  <dt>電話番号</dt>
+                  <dd><a href="tel:0112140455" class="tel-link">011-214-0455</a></dd>
+                </dl>
+              <p class="copy">Copyright (c) Aster House All Right Reserved</p>
+          </div>
+      </div>
+    </footer>
+</body>
+</html>

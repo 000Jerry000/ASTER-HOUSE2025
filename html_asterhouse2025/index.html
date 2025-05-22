@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ページ描画直後から body.loading の子要素をすべて非表示に -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
+    />
+    <title>アスターハウス</title>
+    <meta name="description" content="" />
+    <meta name="”keywords”" content="””" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/style.css?v=20250509" />
+    <link rel="stylesheet" href="css/tab.css?v=20250509" />
+    <link rel="stylesheet" href="css/sp.css?v=20250509" />
+    <link rel="stylesheet" href="css/animation.css?v=20250509" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/abg4zef.css" />
+
+    <link rel="preload" as="image" href="images/top_anime_text-01_sp.svg" />
+    <link rel="preload" as="image" href="images/top_anime_text-02_sp.svg" />
+    <link rel="preload" as="image" href="images/top_anime_text-03_sp.svg" />
+
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "hun8zss",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className =
+              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
+
+    <!-- <script src="js/instagram-feed.js"></script> -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body class="loading">
+    <!-- オーバーレイ -->
+    <div class="overlay"></div>
+
+    <!-- ローディング表示 -->
+    <div class="loading_wrap on" id="loadingWrap">
+      <object
+        class="loading-anime"
+        type="image/svg+xml"
+        data="images/loading_anime.svg"
+      ></object>
+    </div>
+
+    <!-- ローディング中に表示するトップ境界線アニメーション -->
+    <div class="loading_top_border_wrap" id="loadingTopBorder">
+      <object
+        class="loading_top_border pc"
+        type="image/svg+xml"
+        data="images/top_anime_border_pc.svg"
+      ></object>
+      <object
+        class="loading_top_border sp"
+        type="image/svg+xml"
+        data="images/top_anime_border_sp.svg"
+      ></object>
+    </div>
+
+    <!--共通ヘッダー-->
+    <header class="header__page">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/icon_symbol.svg" alt="アスターハウス" class="pc" />
+          <img
+            src="images/logo_header_sp.svg"
+            alt="アスターハウス"
+            class="sp"
+          />
+        </a>
+      </div>
+      <div class="contact">
+        <a href="contact.html">お問合せ</a>
+      </div>
+      <div class="openbtn1" id="menuButton">
+        <span></span><span></span><span></span>
+      </div>
+      <nav id="g-nav">
+        <div class="panel__logo">
+          <a href="index.html"
+            ><img
+              src="images/logo_header_sp.svg"
+              alt="アスターハウス"
+              class="sp"
+          /></a>
+        </div>
+        <div class="sns">
+          <ul>
+            <li>
+              <a
+                href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw"
+                target="_blank"
+                ><img src="images/icon_header_youtube.svg" alt="ユーチューブ"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/__aster_house" target="_blank"
+                ><img src="images/icon_header_insta.svg" alt="インスタ"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/"
+                target="_blank"
+                ><img
+                  src="images/icon_header_facebook.svg"
+                  alt="フェイスブック"
+              /></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"
+                ><img src="images/icon_header_tiktok.svg" alt="ティックトック"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div id="g-navi-list">
+          <ul>
+            <li>
+              <a href="archive-sell.html"
+                >Sell<span class="sp">販売中物件・土地情報</span></a
+              >
+            </li>
+            <li>
+              <a href="archive-works.html"
+                >Works<span class="sp">過去の実績一覧</span></a
+              >
+            </li>
+            <li>
+              <a href="index.html#concept"
+                >Concept<span class="sp">コンセプト</span></a
+              >
+            </li>
+            <li>
+              <a href="archive-news.html"
+                >News<span class="sp">お知らせ</span></a
+              >
+            </li>
+            <li>
+              <a href="company.html"
+                >About us<span class="sp">私たちについて</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="panel" id="menuPanel"></div>
+    </header>
+
+    <article class="header__top border_none" id="headerTop">
+      <!--  追加分 ここから  -->
+      <div class="top_anime-bg_wrap" id="topAnimeBgWrap">
+        <!-- 字とスクロールで出す画像 -->
+        <div class="top_anime-text-01 pc">
+          <object
+            type="image/svg+xml"
+            data="images/top_anime_text-01_pc.svg"
+          ></object>
+        </div>
+        <div class="top_anime-text-02 pc">
+          <object
+            type="image/svg+xml"
+            data="images/top_anime_text-02_pc.svg"
+          ></object>
+        </div>
+        <div class="top_anime-text-03 pc">
+          <object
+            type="image/svg+xml"
+            data="images/top_anime_text-03_pc.svg"
+          ></object>
+        </div>
+        <div class="top_anime-text-02 sp">
+          <object
+            type="image/svg+xml"
+            data="images/top_anime_text-02_sp.svg"
+          ></object>
+        </div>
+        <div class="top_anime-text-01 sp">
+          <object
+            type="image/svg+xml"
+            data="images/top_anime_text-01_sp.svg"
+          ></object>
+        </div>
+        <div class="top_anime-text-03 sp">
+          <object
+            type="image/svg+xml"
+            data="images/top_anime_text-03_sp.svg"
+          ></object>
+        </div>
+      </div>
+      <!-- 線 -->
+      <div class="loading_top_border_wrap" id="loadingTopBorder">
+        <object
+          class="loading_top_border pc"
+          type="image/svg+xml"
+          data="images/top_anime_border_pc.svg"
+        ></object>
+        <object
+          class="loading_top_border sp"
+          type="image/svg+xml"
+          data="images/top_anime_border_sp.svg"
+        ></object>
+      </div>
+      <!-- --------------------------
+    追加分 ここまで
+  -------------------------- -->
+      <div class="header__wrapper">
+        <div class="logo fadeUp">
+          <img src="images/logo.svg" alt="アスターハウス" />
+        </div>
+        <div class="header__info fadeUp">
+          <div class="contact">
+            <a href="contact.html">お問合せ・資料請求</a>
+          </div>
+          <div class="tel roboto"><span>Tel.</span>0120-802-801</div>
+          <div class="header__consul">
+            <a href="archive-sell.html#consul">家づくり相談会</a>
+          </div>
+        </div>
+        <nav class="roboto fadeUp">
+          <li><a href="archive-sell.html">Sell</a></li>
+          <li><a href="archive-works.html">Works</a></li>
+          <li><a href="index.html#concept">Concept</a></li>
+          <li><a href="archive-news.html">News</a></li>
+          <li><a href="company.html">About us</a></li>
+        </nav>
+      </div>
+      <div class="header__top__sns">
+        <li>
+          <a
+            href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw"
+            target="_blank"
+            ><img src="images/icon_header_youtube.svg" alt="ユーチューブ"
+          /></a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/__aster_house" target="_blank"
+            ><img src="images/icon_header_insta.svg" alt="インスタ"
+          /></a>
+        </li>
+        <li>
+          <a href="#" target="_blank"
+            ><img src="images/icon_header_tiktok.svg" alt="ティックトック"
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/"
+            target="_blank"
+            ><img src="images/icon_header_facebook.svg" alt="フェイスブック"
+          /></a>
+        </li>
+      </div>
+      <div class="reserve fadeLeft">
+        <a href="reserve.html"
+          ><img src="images/header_top_reserve.svg" alt="来場予約"
+        /></a>
+      </div>
+      <div class="scroll-icon">
+        <div class="line"></div>
+        <div class="text roboto">Scroll</div>
+      </div>
+      <!-- --------------------------
+      追加分 ここから
+    -------------------------- -->
+      <!-- スクロール検知用 見えない -->
+      <span class="top_anime_scroll" id="topAnimeScroll"></span>
+      <!-- --------------------------
+      追加分 ここまで
+    -------------------------- -->
+    </article>
+    <article>
+      <div class="ttl__top fadeIn">
+        <h2 class="fadeUp">Sell<span>販売中物件・土地情報</span></h2>
+        <div class="btn__more fr mt25 fadeUp">
+          <a href="archive-sell.html">More</a>
+        </div>
+      </div>
+      <div class="top__card_wrapper fadeIn">
+        <div class="sell__card slider">
+          <ul class="slide-track">
+            <li>
+              <a href="single-sell.html">
+                <div class="code">SH<span class="roboto">001</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="build">
+                  <img src="images/icon_sell_build.svg" alt="建売" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell-land.html">
+                <div class="code">CM<span class="roboto">001</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/thumb_card_land.svg" alt="" />
+                </div>
+                <h3>宮の森2条9丁目 2区画</h3>
+                <div class="land">
+                  <img src="images/icon_sell_land.svg" alt="売土地" />
+                  <p class="price roboto">2,498<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell-model.html">
+                <div class="code">SH<span class="roboto">003</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell03.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="model">
+                  <img src="images/icon_sell_model.svg" alt="モデルハウス" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell.html">
+                <div class="code">SH<span class="roboto">004</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell04.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="build">
+                  <img src="images/icon_sell_build.svg" alt="建売" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell.html">
+                <div class="code">SH<span class="roboto">005</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="build">
+                  <img src="images/icon_sell_build.svg" alt="建売" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell.html">
+                <div class="code">SH<span class="roboto">006</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="build">
+                  <img src="images/icon_sell_build.svg" alt="建売" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell.html">
+                <div class="code">SH<span class="roboto">007</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="build">
+                  <img src="images/icon_sell_build.svg" alt="建売" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-sell.html">
+                <div class="code">SH<span class="roboto">008</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="build">
+                  <img src="images/icon_sell_build.svg" alt="建売" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tag fadeIn">
+        <div class="scrolling-wrapper">
+          <ul class="scroll-list">
+            <li>ナチュラル</li>
+            <li>シンプルモダン</li>
+            <li>北欧モダン</li>
+            <li>シックモダン</li>
+            <li>ヴィンテージ</li>
+            <li>ナチュラル</li>
+            <li>シンプル</li>
+            <li>シンプルモダン</li>
+            <li>北欧モダン</li>
+            <li>シックモダン</li>
+            <li>ヴィンテージ</li>
+            <li>ナチュラル2</li>
+            <li>シンプルモダン2</li>
+            <li>北欧モダン2</li>
+            <li>シックモダン2</li>
+            <li>ヴィンテージ2</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <div class="ttl__top fadeIn">
+        <h2 class="fadeUp">Works<span>過去の施工実績</span></h2>
+        <div class="btn__more fr mt25 fadeUp">
+          <a href="archive-works.html">More</a>
+        </div>
+      </div>
+      <div class="top__card_wrapper fadeIn">
+        <div class="sell__card" class="slider">
+          <ul class="slide-track">
+            <li>
+              <a href="single-works.html">
+                <div class="code roboto">SH<span>001</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="works">
+                  <img src="images/icon_sell_works.svg" alt="販売実績" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-works.html">
+                <div class="code roboto">SH<span>002</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="works">
+                  <img src="images/icon_sell_works.svg" alt="販売実績" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-works.html">
+                <div class="code roboto">SH<span>003</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="works">
+                  <img src="images/icon_sell_works.svg" alt="販売実績" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-works.html">
+                <div class="code roboto">SH<span>004</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="works">
+                  <img src="images/icon_sell_works.svg" alt="販売実績" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="single-works.html">
+                <div class="code roboto">SH<span>005</span></div>
+                <div class="scale">4LDK　｜　<span>札幌市東区</span></div>
+                <div class="thumbnail">
+                  <img src="images/sell01.jpg" alt="" />
+                </div>
+                <h3>
+                  サイディングと木羽目板で演出する。<br />ナチュラルテイストの家
+                </h3>
+                <div class="works">
+                  <img src="images/icon_sell_works.svg" alt="販売実績" />
+                  <p class="price roboto">2,300<span>万円</span></p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tag fadeIn">
+        <div class="scrolling-wrapper">
+          <ul class="scroll-list">
+            <li>ナチュラル</li>
+            <li>シンプルモダン</li>
+            <li>北欧モダン</li>
+            <li>シックモダン</li>
+            <li>ヴィンテージ</li>
+            <li>ナチュラル</li>
+            <li>シンプル</li>
+            <li>シンプルモダン</li>
+            <li>北欧モダン</li>
+            <li>シックモダン</li>
+            <li>ヴィンテージ</li>
+            <li>ナチュラル2</li>
+            <li>シンプルモダン2</li>
+            <li>北欧モダン2</li>
+            <li>シックモダン2</li>
+            <li>ヴィンテージ2</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article class="relative">
+      <div id="concept"></div>
+      <div class="ttl__top border-bottom fadeIn">
+        <h2 class="fadeUp">Concept<span>コンセプト</span></h2>
+      </div>
+      <h2 class="h2__concept">
+        <div class="pc">
+          <lottie-player
+            id="lottieAnimation"
+            mode="normal"
+            src="images/concept_text.json"
+            style="width: 100%; margin: 0 auto"
+          >
+          </lottie-player>
+        </div>
+        <div class="sp">
+          <lottie-player
+            id="lottieAnimation"
+            mode="normal"
+            src="images/concept_text_sp.json"
+            style="width: 100%; margin: 0 auto"
+          >
+          </lottie-player>
+        </div>
+      </h2>
+      <div class="top__concept fadeIn">
+        <div class="imgbox__concept slide">
+          <div class="slide"><img src="images/top_concept01.jpg" alt="" /></div>
+          <div class="slide"><img src="images/top_concept02.jpg" alt="" /></div>
+          <div class="slide"><img src="images/top_concept03.jpg" alt="" /></div>
+          <div class="slide"><img src="images/top_concept04.jpg" alt="" /></div>
+        </div>
+        <div class="textbox__concept">
+          <p class="fadeUp">
+            Our strength is our ability to design homes<br />
+            with ideal cost performance.
+          </p>
+          <p class="ja justify fadeUp">
+            私たちアスターハウスはデザインとコスパにこだわった家づくりをしています。これから先、永く過ごす大切な住まい。気持ちよく住み続けていくために、理想のデザインとコスパを叶えた住宅をご提案いたします。家づくりを通して自分らしい暮らしを、一緒にデザインしていきましょう。
+          </p>
+          <div class="icon__concept fadeUp ani_trigger">
+            <!-- <img src="images/icon_concept.svg" alt=""> -->
+            <svg
+              id="uuid-f95d9587-348e-45bd-aee9-3c54d06bc788"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 35.1 62"
+            >
+              <defs>
+                <style>
+                  .text {
+                    fill: #1c1c1c;
+                    transform: translateY(20px); /* 初期状態 */
+                    animation: text 0.7s forwards;
+                  }
+                  .flower {
+                    fill: #b91f3a;
+                  }
+                  .text,
+                  .flower {
+                    /* 初期状態ではアニメーションさせない */
+                    animation: none;
+                  }
+                  .animate .text {
+                    animation: text 0.7s forwards;
+                  }
+                  .animate .flower {
+                    animation: flower 3s forwards;
+                    animation-delay: 1s;
+                    transform-box: fill-box;
+                    transform-origin: center center;
+                  }
+                  @keyframes flower {
+                    10% {
+                    }
+                    100% {
+                      transform: rotate(720deg);
+                    }
+                  }
+                  @keyframes text {
+                    0% {
+                      transform: translateY(20px);
+                      opacity: 0;
+                    }
+                    100% {
+                      transform: translateY(0px);
+                      opacity: 1;
+                    }
+                  }
+                </style>
+              </defs>
+              <g id="uuid-2c14fc1b-c8b6-4145-aeb8-fdf8f88e18c3">
+                <path
+                  class="flower"
+                  d="M21.84,19.33l10.18,8.13c-1.23,1.79-2.78,3.34-4.57,4.57l-8.13-10.18,1.45,12.94c-1.05.2-2.13.31-3.23.31s-2.18-.11-3.23-.31l1.45-12.94-8.13,10.18c-1.79-1.23-3.34-2.78-4.57-4.57l10.18-8.13L.31,20.78c-.2-1.05-.31-2.13-.31-3.23s.11-2.18.31-3.23l12.94,1.45L3.07,7.64c1.23-1.79,2.78-3.34,4.57-4.57l8.13,10.18L14.32.31c1.05-.2,2.13-.31,3.23-.31s2.18.11,3.23.31l-1.45,12.94L27.46,3.07c1.79,1.23,3.34,2.78,4.57,4.57l-10.18,8.13,12.94-1.45c.2,1.05.31,2.13.31,3.23s-.11,2.18-.31,3.23l-12.94-1.45Z"
+                />
+                <path
+                  class="text"
+                  d="M29.19,36.57c-8.68.11-14.62,4.86-14.62,12.7v12.73h5.96v-11.87c0-6.19,4.81-8.33,10.18-7.58l-1.52-5.98Z"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article>
+      <div class="ttl__top border-bottom fadeIn">
+        <h2 class="fadeUp">News<span>お知らせ</span></h2>
+        <div class="btn__more fr mt25 fadeUp">
+          <a href="archive-news.html">More</a>
+        </div>
+      </div>
+      <div class="news">
+        <dl class="news__textbox">
+          <div class="line-item">
+            <dt class="fadeUp">2024/12/24<span>お知らせ</span></dt>
+            <dd data-img="images/news_top_thumbnail.jpg" class="fadeUp">
+              <a href="single-news.html"
+                >お知らせテキストが入ります（写真未登録：デフォルト写真）</a
+              >
+            </dd>
+            <div class="line-wrapper"></div>
+          </div>
+          <div class="line-item">
+            <dt class="fadeUp">2024/12/24<span>モデルハウス</span></dt>
+            <dd
+              data-img="images/news_top_thumbnail_sample01.jpg"
+              class="fadeUp"
+            >
+              <a href="single-news.html"
+                >東雁来にモデルハウスを公開いたしました。</a
+              >
+            </dd>
+            <div class="line-wrapper"></div>
+          </div>
+          <div class="line-item">
+            <dt class="fadeUp">2024/12/24<span>土地情報</span></dt>
+            <dd class="pc fadeUp" data-img="images/news_top_thumbnail_land.jpg">
+              <a href="single-news-land.html"
+                >札幌市北区の土地情報を追加いたしました。</a
+              >
+            </dd>
+            <dd
+              class="sp fadeUp"
+              data-img="images/news_top_thumbnail_land_sp.jpg"
+            >
+              <a href="single-news-land.html"
+                >札幌市北区の土地情報を追加いたしました。</a
+              >
+            </dd>
+            <div class="line-wrapper"></div>
+          </div>
+          <div class="line-item">
+            <dt class="fadeUp">2024/12/24<span>物件情報</span></dt>
+            <dd
+              data-img="images/news_top_thumbnail_sample02.jpg"
+              class="fadeUp"
+            >
+              <a href="single-news.html"
+                >札幌市東区の新築情報を追加いたしました。</a
+              >
+            </dd>
+            <div class="line-wrapper"></div>
+          </div>
+          <div class="line-item">
+            <dt class="fadeUp">2024/12/24<span>物件情報</span></dt>
+            <dd
+              data-img="images/news_top_thumbnail_sample03.jpg"
+              class="fadeUp"
+            >
+              <a href="single-news.html">実績に新築情報を追加いたしました。</a>
+            </dd>
+            <div class="line-wrapper"></div>
+          </div>
+        </dl>
+        <div class="news__imgbox">
+          <img
+            src="images/news_top_thumbnail.jpg"
+            alt="アスターハウス"
+            id="newsImage"
+          />
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <div class="ttl__top border-bottom fadeIn">
+        <h2 class="fadeUp">SNS<span>最新の住宅情報を発信</span></h2>
+      </div>
+      <div class="top__sns">
+        <li class="fadeIn">
+          <h3 class="top__youtube fadeUp">Youtube</h3>
+          <div class="icon fadeUp">
+            <img src="images/icon_top_youtube.svg" alt="" />
+          </div>
+          <div class="sns__textbox fadeUp">
+            <p>
+              モデルハウスや施主様のお宅を5分<br />程度のルームツアー動画で公開中！
+            </p>
+            <div class="btn__top__sns fr">
+              <a
+                href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw"
+                target="_blank"
+                >ユーチューブ</a
+              >
+            </div>
+          </div>
+          <div class="thumbnail fadeIn">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/?list=UUoIVR-wyZFAeAOx5vTYoVxw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </li>
+        <li class="fadeIn">
+          <h3 class="top__insta fadeUp">Instagram</h3>
+          <div class="icon fadeUp">
+            <img src="images/icon_top_insta.svg" alt="" />
+          </div>
+          <div class="sns__textbox fadeUp">
+            <p>
+              モデルハウスや施主様のお宅<br class="sp" />を投稿<br
+                class="pc"
+              />写真やストーリーで公開！
+            </p>
+            <div class="btn__top__sns fr">
+              <a href="https://www.instagram.com/__aster_house" target="_blank"
+                >インスタグラム</a
+              >
+            </div>
+          </div>
+          <div class="thumbnail fadeIn">
+            <div class="insta__grid">
+              <div class="instagram-item">
+                <a
+                  href="https://www.instagram.com/__aster_house"
+                  target="_blank"
+                  ><img src="images/top_insta01.jpg" alt=""
+                /></a>
+              </div>
+              <div class="instagram-item">
+                <a
+                  href="https://www.instagram.com/__aster_house"
+                  target="_blank"
+                  ><img src="images/top_insta02.jpg" alt=""
+                /></a>
+              </div>
+              <div class="instagram-item">
+                <a
+                  href="https://www.instagram.com/__aster_house"
+                  target="_blank"
+                  ><img src="images/top_insta03.jpg" alt=""
+                /></a>
+              </div>
+              <div class="instagram-item">
+                <a
+                  href="https://www.instagram.com/__aster_house"
+                  target="_blank"
+                  ><img src="images/top_insta04.jpg" alt=""
+                /></a>
+              </div>
+            </div>
+            <div id="instagram-feed" class="instagram-grid"></div>
+          </div>
+        </li>
+      </div>
+    </article>
+
+    <article>
+      <div class="catch">
+        <h2 class="fadeUp">
+          <img src="images/logo.svg" alt="アスターハウス" />
+        </h2>
+        <p class="fadeUp">
+          理想のデザインを最適なコストで。<span class="fadeUp"
+            >Your ideal design house at the best cost.</span
+          >
+        </p>
+      </div>
+    </article>
+    <footer>
+      <div class="info__3col">
+        <div class="contact">
+          <a href="contact.html">
+            <div class="contact__inner">
+              <img src="images/icon_footer_contact.svg" alt="お問合せ" />
+              <img src="images/icon_footer_request.svg" alt="資料請求" />
+              <p>お問合せ / 資料請求<span>Contact</span></p>
+            </div>
+          </a>
+        </div>
+        <div class="tel">
+          <a href="tel:0120-802-801">
+            <img
+              src="images/icon_footer_freenumber.svg"
+              alt="フリーダイヤル"
+              class="pc"
+            />
+            <img
+              src="images/icon_footer_phone.svg"
+              alt="電話をかける"
+              class="sp"
+            />
+            <p class="tel__number pc">
+              <span class="clarendon">Tel.</span>0120-802-801
+            </p>
+            <p class="tel__number sp">フリーダイヤル</p>
+            <p class="tel__hours">受付時間 10:00-18:00 / 定休日 水曜日</p>
+          </a>
+        </div>
+        <div class="consultation">
+          <a href="archive-sell.html#consul">
+            <div class="consultation__inner">
+              <img src="images/icon_footer_consul.svg" alt="家づくり相談会" />
+              <p>家づくり相談会<span>Consultation</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="footer__block">
+        <div class="footer__left">
+          <ul class="footer__logo">
+            <li>
+              <a href="index.html"
+                ><img src="images/logo_asterhouse.svg" alt="アスターハウス"
+              /></a>
+            </li>
+            <li>
+              <a href="https://aster-estate.com" target="_blank"
+                ><img src="images/logo_aster.svg" alt="アスター"
+              /></a>
+            </li>
+            <li>
+              <a href="https://reform.aster-estate.com" target="_blank"
+                ><img src="images/logo_rinobe.svg" alt="リノベのアスター"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__right">
+          <div class="site__info">
+            <ul class="page__list">
+              <li><a href="archive-sell.html">販売中物件・土地情報</a></li>
+              <li><a href="archive-works.html">過去の施工実績</a></li>
+              <li><a href="index.html#concept">コンセプト</a></li>
+              <li><a href="archive-news.html">お知らせ</a></li>
+              <li><a href="company.html">私たちについて</a></li>
+              <li class="pc">
+                SNS
+                <span class="footer__sns"
+                  ><a
+                    href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw"
+                    target="_blank"
+                    ><img
+                      src="images/icon_footer_youtube.svg"
+                      alt="ユーチューブ" /></a
+                ></span>
+                <span class="footer__sns"
+                  ><a
+                    href="https://www.instagram.com/__aster_house"
+                    target="_blank"
+                    ><img
+                      src="images/icon_footer_insta.svg"
+                      alt="インスタグラム" /></a
+                ></span>
+                <span class="footer__sns"
+                  ><a
+                    href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/"
+                    target="_blank"
+                    ><img
+                      src="images/icon_footer_facebook.svg"
+                      alt="フェイスブック" /></a
+                ></span>
+                <span class="footer__sns"
+                  ><a href=""
+                    ><img src="images/icon_footer_tiktok.svg" alt="tiktok" /></a
+                ></span>
+              </li>
+            </ul>
+            <ul class="page__list">
+              <li><a href="contact.html">各種お問合せ</a></li>
+              <li><a href="reserve.html">来場予約</a></li>
+              <li><a href="company.html#privacy">プライバシーポリシー</a></li>
+              <li class="sp">
+                SNS
+                <div class="page__list__sns">
+                  <span class="footer__sns__sp"
+                    ><a
+                      href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw"
+                      target="_blank"
+                      ><img
+                        src="images/icon_footer_youtube.svg"
+                        alt="ユーチューブ" /></a
+                  ></span>
+                  <span class="footer__sns__sp"
+                    ><a
+                      href="https://www.instagram.com/__aster_house"
+                      target="_blank"
+                      ><img
+                        src="images/icon_footer_insta.svg"
+                        alt="インスタグラム" /></a
+                  ></span>
+                  <span class="footer__sns__sp"
+                    ><a
+                      href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/"
+                      target="_blank"
+                      ><img
+                        src="images/icon_footer_facebook.svg"
+                        alt="フェイスブック" /></a
+                  ></span>
+                  <span class="footer__sns__sp"
+                    ><a href=""
+                      ><img
+                        src="images/icon_footer_tiktok.svg"
+                        alt="tiktok" /></a
+                  ></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <dl class="company__info">
+            <dt>所在地</dt>
+            <dd>〒065-0013<br />　札幌市東区北13条東16丁目1-1</dd>
+            <dt>営業時間</dt>
+            <dd>9:00 - 18:00</dd>
+            <dt>電話番号</dt>
+            <dd><a href="tel:0112140455" class="tel-link">011-214-0455</a></dd>
+          </dl>
+          <p class="copy">Copyright (c) Aster House All Right Reserved</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,721 @@
+
+@media screen and (max-width: 1699px) {
+    .archive__sell__card {
+        display: grid;
+        grid-template-columns: repeat(4 , 1fr);
+    }    
+    .archive__sell__card li {
+        position: relative;
+        padding: 25px 25px 10px;
+        border-right: 1px solid #1c1c1c;
+        border-bottom: 1px solid #1c1c1c;
+        transition: all 0.3s ease;
+    }
+    .archive__sell__card li:nth-last-child(-n+4) {
+        border-bottom: none;
+    }
+    .archive__sell__card li:nth-child(5n) {
+        border-right: 1px solid #1c1c1c;
+    }
+    .archive__sell__card li:nth-child(4n) {
+        border-right: none;
+    }
+
+    .archive__sell__card li .is-hidden {
+        display: none;
+    }
+    .archive__sell__card li .code {
+        width: 3em;
+        position: absolute;
+        top: 27px;
+        left: 40px;
+        font-size: 2.19vw;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+    }
+    .archive__sell__card li .code span {
+        display: block;
+        margin-top: 5px;
+        font-weight: 500;
+        letter-spacing: 0.07em;
+    }
+    .archive__sell__card li .scale {
+        float: right;
+        display: block;
+        margin: 0.3vw 0 1.82vw;
+        font-size: 1.25vw;
+        font-family: "Roboto", 'Arial','Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+    }
+    .archive__sell__card li .scale span {
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+    .archive__sell__card li .thumbnail {
+        width: 100%;
+        margin: 0 0 1.56vw;
+    }
+    .archive__sell__card li h3 {
+        height: 3.5em;
+        margin: 2.08vw 0 2.5vw;
+        font-size: 1.25vw;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.6em;
+        letter-spacing: -1px;
+    }
+    .archive__sell__card li .build,
+    .archive__sell__card li .land,
+    .archive__sell__card li .model,
+    .archive__sell__card li .works {
+        width: 100%;
+    }
+    .archive__sell__card li .build img,
+    .archive__sell__card li .land img,
+    .archive__sell__card li .model img {
+        width: 7.45vw;
+        margin: -1.52vw 0 0 0;
+    }
+    .archive__sell__card li .works img {
+        width: 7.11vw;
+        margin: -0.52vw 0 0 0;
+    }
+    .archive__sell__card li .price {
+        float: right;
+        font-size: 3.13vw;
+        font-weight: 500;
+    }
+    .archive__sell__card li .price span {
+        margin: 0 0.2vw 0 5px;
+        font-size: 1.15vw;
+        font-weight: bold;
+    }
+
+}
+
+
+@media screen and (max-width: 1360px) {
+
+    .top__concept .textbox__concept {
+        position: relative;
+        width: 50%;
+        height: 43.85vw;
+        float: left;
+        padding: 3.13vw 3.91vw;
+        font-size: 1.88vw;
+    }
+    .top__concept .textbox__concept .ja {
+        width: calc(100% - 7.82vw);
+        position: absolute;
+        bottom: 3.65vw;
+        left: 0;
+        font-size: 1.25vw;
+    }
+    .top__concept .textbox__concept .icon__concept {
+        position: absolute;
+        top: 11.42vw;
+        right: 7.81vw;
+        width: 1.8vw;
+    }
+    .top__concept .textbox__concept .icon__concept svg {
+        width: 100%;
+    }
+    .top__concept .textbox__concept p {
+        font-weight: 500;
+    }
+
+    footer .info__3col {
+        height: 14.45vw;
+    }
+
+    footer .info__3col .contact a {
+        padding: 2.60vw 20px 1.04vw;
+    }
+    footer .info__3col .contact img {
+        width: 3.65vw;
+        height: auto;
+        display: inline-block;
+        margin: 0 4vw 1.04vw;
+    }
+    footer .info__3col .contact img:first-child {
+        width: 3.65vw;
+        margin: 0 3.25vw 0.52vw 2.65vw;
+    }
+
+    footer .info__3col .contact p {
+        margin: 0.78vw 0 5px;
+        font-size: 1.98vw;
+    }
+    footer .info__3col .contact p span {
+        font-size: 0.93vw;
+        margin-top: 0.26vw;
+    }
+    footer .info__3col .contact p span:after {
+        top: 50%;
+        width: 12px;
+        height: 1em;
+    }
+    footer .info__3col .tel {
+        padding: 2.60vw 20px 1.56vw;
+        text-align: center;
+        border-right: 1px solid #000;
+    }
+    footer .info__3col .tel img {
+        width: 3.65vw;
+        margin: 0 auto 1.04vw;
+    }
+    footer .info__3col .tel .tel__number {
+        font-size: 2.5vw;
+        letter-spacing: 0.05em;
+    }
+    footer .info__3col .tel .tel__number span {
+        font-size: 1.67vw;
+        margin-right: 10px;
+    }
+    footer .info__3col .tel .tel__hours {
+        font-family: 'Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+        font-size: 0.93vw;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+    }
+    footer .info__3col .consultation a {
+        padding: 2.60vw 20px 1.56vw;
+    }
+    footer .info__3col .consultation__inner {
+        max-width: 15.62vw;
+        margin: 0 auto;
+    }
+    footer .info__3col .consultation img {
+        width: 3.65vw;
+        height: auto;
+        display: inline-block;
+        margin: 0 auto 1.22vw;
+    }
+    footer .info__3col .consultation p {
+        font-size: 1.98vw;
+        font-weight: 600;
+    }
+    footer .info__3col .consultation p span {
+        font-size: 0.93vw;
+        margin-top: 0.26vw;
+        letter-spacing: 0.1em;
+        line-height: 2em;
+    }
+
+    footer .info__3col .consultation p span:after {
+        position: absolute;
+        top: 50%;
+        right: -18px;
+        transform: translateY(-50%);
+        content: "";
+        background-image: url(../images/icon_footer_arrow02.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10px;
+        height: 1em;
+    }
+
+
+    /*  アーカイブNewsページ--------------*/
+    .news__category {
+        width: calc(100% - 22.399vw);
+        height: auto;
+        margin: 3.13vw 4.17vw;
+        padding: 0 7.03vw;
+    }
+    .news__category li {
+        display: inline-block;
+        margin-right: 3em;
+        font-size: 1.25vw;
+        font-weight: bold;
+    }
+    .news__category li a {
+        font-weight: bold;
+    }
+    .news__archive {
+        margin: 5.47vw 4.17vw;
+        font-size: 1.25vw;
+    }
+    .news__archive dt {
+        width: 25em;
+        float: left;
+        clear: left;
+        padding: 1.5em 0 1.5em 7.03vw;
+    }
+    .news__archive dt .date {
+        width: 10em;
+        float: left;
+        font-weight: 500;
+    }
+    .news__archive dt .news__cat {
+        flex: 0 0 9em;
+        margin: 0 3em 0 2em; 
+        font-weight: 600;
+    }
+    .news__archive dd a {
+        position: relative;
+        display: block;
+        padding: 1.5em 7.03vw 1.5em 0;
+        font-weight: bold;
+        padding-left: 4em;
+        transition: all 0.3s ease-in;
+    }
+    .news__archive dd a:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 1.3em;
+        background-color: #000;
+    }
+    .news__archive dd a:hover {
+        color: #888;
+        transition: all 0.3s ease-in;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    .staff-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 25.04vw;       /* １行＝52.08vw */
+        gap: 0;
+        transition: grid-auto-rows 0.3s ease;
+    }
+    /* カード開いたときだけ行高を自動に */
+    .staff-list[style*="grid-auto-rows: auto"] {
+        grid-auto-rows: auto;
+    }
+    .staff-list .staff-card {
+        padding: 2.34vw;
+    }  
+    /* 通常カードは高さ2行×幅1列 */
+    .staff-card {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        grid-row: span 2;      /* 高さ2行 */
+        grid-column: auto;    /* 幅1列 */
+        border-bottom: 1px solid #000;
+        border-right: 1px solid #000;
+    }
+    .staff-card:nth-child(-n+3) {
+        border-top: 1px solid #000;
+    }
+    .staff-card:nth-child(3n) {
+        border-right: none;
+    }
+    .staff-card:nth-child(4) {
+        border-right: 1px solid #000;
+        border-top: none;
+    }
+    .staff-card:nth-child(5) {
+        border-bottom: 1px solid #000;
+    }
+    .staff-card:nth-child(6) {
+        border-bottom: 1px solid #000;
+    }
+    .staff-card:nth-child(8) {
+        border-right: 1px solid #000;
+    }
+    .staff-card img {
+        width: 100%;
+        height: 19vw;
+        object-fit: cover;
+        object-position: center;
+    }
+    .staff-card .type {
+        margin: 5.85vw 0 0 1.56vw;
+        font-size: 0.94vw;
+        font-weight: 600;
+    }
+    .staff-card .name {
+        margin: 0.56vw 0 0 1.56vw;
+        font-size: 2.08vw;
+        font-weight: 600;
+    }
+    .staff-card .name span {
+        display: block;
+        margin-top: 0.12vw;
+        font-size: 1.15vw;
+        font-weight: 600;
+        font-family: "Roboto", 'Arial','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    }
+    .staff-card .qualification {
+        margin: 5.85vw 0 0 1.56vw;
+        font-size: 0.94vw;
+        font-weight: 600;
+        line-height: 1.55em;
+    }
+    .staff-card .view-btn {
+        position: absolute;
+        display: block;
+        bottom: 1.82vw;
+        left: 3.9vw;
+        width: 6.77vw;
+        padding: 5px 1.82vw 5px 1.56vw;
+        font-size: 1.25vw;
+        font-weight: 450;
+        letter-spacing: 0.05em;
+        border: 1px solid #000;
+        border-radius: 100vh;
+        transition: all 0.5s ease;
+    }
+    .staff-card .view-btn::after {
+        position: absolute;
+        top: 49%;
+        right: 15%;
+        transform: translateY(-55%);
+        content: "";
+        background-image: url(../images/icon_more.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 0.52vw;
+        height: 1.04vw;
+        transition: all 0.5s ease;
+    }
+    .staff-card .view-btn:hover {
+        background: #000;
+        color: #fff;
+        transition: all 0.5s ease;
+    }
+    .staff-card .view-btn:hover::after {
+        background-image: url(../images/icon_more_white.svg);
+        right: 10%;
+        transition: all 0.%;
+        z-index: 10;
+    }
+    .staff-card .close-btn {
+        display: none;
+    }
+
+    /* open クラスで「幅だけ２列に拡大、高さはそのまま」 */
+    .staff-card.open {
+        grid-column: span 2;        /* 幅2列 */
+        z-index: 2;
+        overflow: visible;
+    }
+    .staff-card.open:nth-child(2),
+    .staff-card.open:nth-child(5) {
+        border-right: none;
+    }
+    .staff-card.open:nth-child(7) {
+        border-right: 1px solid #000;
+    }
+    .staff-card.open img {
+        width: calc(50% - 4.668vw);
+        height: 19vw;
+        object-fit: cover;
+        object-position: center;
+    }
+    .staff-card.open .qualification {
+        margin: 5.85vw 0 0 1.56vw;
+        font-size: 0.94vw;
+        font-weight: 600;
+        line-height: 1.55em;
+    }
+
+    .staff-card.open .card-detail {
+        width: 19.25%;
+        float: right;
+        position: absolute;
+        top: 0;
+        right: 4.17vw;
+    }
+    
+    .staff-card.open h3 {
+        display: inline-block;
+        position: relative;
+        font-size: 1.04vw;
+        font-weight: 600;
+    }
+    .staff-card.open .hobby::before,
+    .staff-card.open .skill:before,
+    .staff-card.open .message:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        }
+    .staff-card.open p {
+        margin: 0.5vw 0 5.73vw;
+        font-size: 0.94vw;
+        font-weight: 600;
+        line-height: 1.55em;
+        text-align: justify;
+        text-justify: inter-ideograph;
+    }
+    .staff-card.open p + p {
+        margin-bottom: 4.95vw;
+    }
+    .staff-card.open .view-btn {
+        display: none;
+    }
+    .staff-card.open .close-btn {
+        position: absolute;
+        display: block;
+        bottom: 1.82vw;
+        right: 4.17vw;
+        padding: 5px 1.82vw 5px 2.6vw;
+        font-size: 1.25vw;
+        font-weight: 450;
+        letter-spacing: 0.05em;
+        border: 1px solid #000;
+        border-radius: 100vh;
+        transition: all 0.5s ease;
+    }    
+    .staff-card.open .close-btn::after {
+        position: absolute;
+        top: 49%;
+        left: 15%;
+        transform: translateY(-55%);
+        content: "";
+        background-image: url(../images/icon_staff_button_close.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 0.52vw;
+        height: 1.0vw;
+        transition: all 0.5s ease;
+    }
+    .staff-card.open .close-btn:hover {
+        background: #000;
+        color: #fff;
+        transition: all 0.5s ease;
+    }
+    .staff-card.open .close-btn:hover::after {
+        background-image: url(../images/icon_staff_button_close_hover.svg);
+        left: 10%;
+        transition: all 0.%;
+        z-index: 10;
+    }
+
+    .staff-card.shrink{
+        position: relative;
+        padding: 2.34vw 2.34vw 0;
+    }
+    .staff-card.shrink:nth-child(2) {
+        border-bottom: 1px solid #000;
+    }
+    .staff-card.shrink:nth-child(3) {
+        border-top: none;
+    }
+    .staff-card.shrink:nth-child(6) {
+        border-right: 1px solid #000;
+    }
+    .staff-card.shrink img {
+        width: 100%;
+        height: 17vw;
+        object-fit: cover;
+        object-position: center;
+    }
+    .staff-card.shrink .view-btn {
+        position: absolute;
+        left: 23.66vw;
+        bottom: 1.82vw;
+        width: 6.77vw;
+        padding: 5px 1.82vw 5px 1.56vw;
+        font-size: 1.25vw;
+        font-weight: 450;
+        letter-spacing: 0.05em;
+    }
+    .staff-card.shrink .view-btn::after {
+        width: 0.52vw;
+        height: 1.04vw;
+    }
+    .staff-card.shrink .type {
+        display: none;
+    }
+    .staff-card.shrink .name {
+        position: absolute;
+        left: 0.82vw;
+        bottom: 1.82vw;
+    }
+    .staff-card.shrink .name span {
+        display: none;
+    }
+}
+
+
+
+@media screen and (max-width: 1080px) {
+    .archive__sell__card {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .archive__sell__card li {
+        position: relative;
+        padding: 25px 25px 10px;
+        border-right: 1px solid #1c1c1c;
+        border-bottom: 1px solid #1c1c1c;
+        transition: all 0.3s ease;
+    }
+        .archive__sell__card li:nth-child(3n) {
+            border-right: none;
+        }
+        .archive__sell__card li:nth-child(4n) {
+            border-right: 1px solid #000;
+        }
+        .archive__sell__card li:nth-child(5) {
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+        .archive__sell__card li:nth-child(6) {
+            border-bottom: 1px solid #000;
+        }
+        .archive__sell__card li .code {
+            width: 3em;
+            position: absolute;
+            top: 27px;
+            left: 40px;
+            font-size: 2.19vw;
+            font-weight: 600;
+            line-height: 1em;
+            letter-spacing: 0.1em;
+        }
+        .archive__sell__card li .code span {
+            display: block;
+            margin-top: -0;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+        }
+        .archive__sell__card li .scale {
+            float: right;
+            display: block;
+            margin: 0.3vw 0 1.82vw;
+            font-size: 1.56vw;
+            font-family: "Roboto", 'Arial','Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+        .archive__sell__card li .scale span {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        .archive__sell__card li .thumbnail {
+            width: 100%;
+            margin: 0 0 1.56vw;
+        }
+        .archive__sell__card li h3 {
+            height: 3.5em;
+            margin: 2.08vw 0 2.5vw;
+            font-size: 1.56vw;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.6em;
+            letter-spacing: -1px;
+        }
+        .archive__sell__card li .build,
+        .archive__sell__card li .land,
+        .archive__sell__card li .model,
+        .archive__sell__card li .works {
+            width: 100%;
+        }
+        .archive__sell__card li .build img,
+        .archive__sell__card li .land img,
+        .archive__sell__card li .model img {
+            width: 9vw;
+            margin: -1.52vw 0 0 0;
+        }
+        .archive__sell__card li .works img {
+            width: 9vw;
+            margin: -0.52vw 0 0 0;
+        }
+        .archive__sell__card li .price {
+            float: right;
+            font-size: 4vw;
+            font-weight: 500;
+        }   
+        .archive__sell__card li .price span {
+            margin: 0 0.2vw 0 5px;
+            font-size: 1.56vw;
+            font-weight: bold;
+        }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    /* スクロールアイコン */
+    .scroll-icon {
+        position: absolute;
+        top: 40%;
+        left: 1.56vw;
+        width: 50px;
+        height: 15vw;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .scroll-icon.show {
+        opacity: 1;
+    }
+    .scroll-icon .line {
+        position: absolute;
+        top: 4.17vw;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 0px;
+        background: #000;
+        opacity: 1; /* 常に表示 */
+        animation: stretch 2.5s linear infinite;
+        animation-delay: 0.5s;
+    }
+    .scroll-icon .text {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.25vw;
+        font-weight: 600;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        letter-spacing: 0.1em;
+    }
+        @keyframes stretch {
+            0% {
+                height: 0px;
+                top: 4.69vw;
+            }
+            50% {
+                height: 10vw;
+                top: 4.69vw;
+            }
+            100% {
+                height: 0px;
+                top: 100%;
+            }
+        }
+
+
+    footer .footer__block .site__info .page__list .footer__sns {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px 0;
+    }
+
+
+
+    /* .form-item .form-item-label {
+        display: block;
+        width: 11.98vw;
+        margin-right: 6.25vw;
+        padding: 0.3em 0 0;
+        font-size: 1.25vw;
+        font-weight: bold;
+        text-align-last: justify;
+        text-align: justify;
+        -webkit-text-align-last: justify;
+        text-justify: inter-ideograph;
+        flex-shrink: 0;
+    } */
+
+
+}

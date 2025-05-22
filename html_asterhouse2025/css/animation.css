@@ -1,0 +1,513 @@
+/* フェードイン */
+.fadeIn {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.5s;
+}
+.fadeIn.active {
+  opacity: 1;
+  visibility: visible;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeUp {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.5s;
+}
+.fadeUp.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+  @media screen and (max-width: 767px) {
+    .fadeUp {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 1.5s;
+    }    
+  }
+
+.fadeUp-tab {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.5s;
+}
+.fadeUp-tab.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+  @media screen and (max-width: 767px) {
+    .fadeUp-tab {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 1.5s;
+    }    
+  }
+  
+.fadeLeft {
+  transition: transform 1s ease, opacity 1s ease;
+  opacity: 0;
+  transform: translateX(50%);
+}
+.fadeLeft.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* 上から徐々に表示 */
+.fadeDown {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 1.5s;
+}
+.fadeDown.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+  @media screen and (max-width: 767px) {
+    .fadeDown {
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: all 1.5s;
+    }    
+  }
+/* アイコン自体が上から徐々に出現 */
+.fadeInText {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 1.5s, transform 1.5s;
+}
+.fadeInText.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 相談会svg吹き出しディレイ */
+.speech-e, .speech-q {
+  fill: none;
+  stroke: #c9002e;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+  opacity: 0;
+  transform: translate(0, 10px);
+}
+.speech-q.animate {
+  animation: anime 0.5s forwards;
+}
+.speech-e.animate {
+  animation: anime 0.5s 2s forwards;
+}
+@keyframes anime {
+  100% {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+.imgbox50__company {
+  width: 50%;
+  height: 80vw;
+  float: left;
+  display: block;
+  position: relative;
+}
+.imgbox50__company .svg__company01 {
+    position: absolute;
+    top: 0vw;
+    left: 4.69vw;
+    width: 20.83vw;
+}
+.imgbox50__company .svg__company02 {
+    position: absolute;
+    top: 28.65vw;
+    left: 9vw;
+    width: 45vw;
+}
+.imgbox50__company .svg__company03 {
+    position: absolute;
+    top: 63.41vw;
+    left: 13.21vw;
+    width: 17vw;
+  }
+.imgbox50__company .svg__company04 {
+    position: absolute;
+    top: 95.36vw;
+    left: 7.45vw;
+    width: 35.6vw;        
+}
+
+
+
+
+/* (例) ローディング表示・非表示 */
+.loading_wrap {
+  display: none; /* デフォルトは隠す */
+  opacity: 0;
+  transition: opacity .3s;
+}
+.loading_wrap.on {
+  display: block;
+  opacity: 1;
+}
+.loading_wrap.none {
+  display: none !important;
+}
+
+/* FVアニメーション用の on/nothing は既存で動いていれば問題ありません */
+.top_anime-bg_wrap,
+.loading_top_border_wrap {
+  display: none;
+}
+.top_anime-bg_wrap.on,
+.loading_top_border_wrap.on {
+  display: block;
+}
+
+
+
+
+/* 既存を上書き ここから ----*/
+.header__top {
+  position: relative;
+  width: 100%;
+  /*--height: 54.5vw; Safariでアスペクト比非対応の場合の高さ指定--*/
+  padding-top: 54vw;
+  background-image: none !important;
+  /* border-bottom: solid 1px #000; */
+}
+.header__top.on {
+  background-image: url(../images/main.jpg) !important;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+  @supports (aspect-ratio: 1/1) {
+    .header__top {
+      height: auto;
+      aspect-ratio: 96/53;
+    }
+  }
+  /* aspect-ratio 非対応ブラウザ向けフォールバック */
+  /* @supports not (aspect-ratio: 1/1) {
+    .header__top {
+      height: 54.2vw;
+    }
+  } */
+  /* @media screen and (max-width: 1024px) {
+    .header__top.on {
+      background-size: cover;
+    }
+  } */
+
+.top_anime-bg_wrap, .loading_top_border_wrap, .loading_wrap {
+  display: none;
+}
+.top_anime-bg_wrap.on, .loading_top_border_wrap.on, .loading_wrap.on {
+  display: block;
+}
+/* 既存を上書き ここまで ----*/
+/* ローディング ここから ----*/
+.loading_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+}
+.loading_wrap.none {
+  display: none;
+}
+.loading-text, .loading-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 44.5vw;
+}
+@media screen and (max-width: 767px) {
+  .loading-text, .loading-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+  }  
+}
+.loading-anime {
+  width: 50%;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .loading-anime {
+    width: 70%;
+  }
+}
+
+/* PC/SP 共通で最初は隠す */
+.top_anime-text-01,
+.top_anime-text-02,
+.top_anime-text-03 {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease; /* お好みでフェード時間を調整 */
+}
+
+/* アニメーション開始（.on が付いたとき）に表示 */
+#topAnimeBgWrap.on .top_anime-text-01,
+#topAnimeBgWrap.on .top_anime-text-02,
+#topAnimeBgWrap.on .top_anime-text-03 {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* TOP  ここから ----*/
+.top_anime_scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  transition: all 2s;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  z-index: 10;
+}
+.top_anime_scroll::-webkit-scrollbar {
+  display: none;
+}
+.top_anime_scroll.none {
+  display: none;
+}
+.top_anime_scroll:after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 150%;
+}
+.top_anime-bg_wrap {
+  pointer-events: none;
+}
+.top_anime-bg_wrap object {
+  transition: transform cubic-bezier(0, 0.55, 0.45, 1) 1s;
+}
+.top_anime-text-01, .top_anime-text-02, .top_anime-text-03 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-repeat: no-repeat;
+  transition: all cubic-bezier(0, 0.55, 0.45, 1) 1s;
+}
+.top_anime-text-01 {
+  background-image: url(../images/top_anime-img_01.jpg);
+  background-position: top 96% left 14.5%;
+  background-size: 38% auto;
+}
+
+
+
+.top_anime-bg_wrap.scroll-01-02 .top_anime-text-01 {
+  transform: translateY(-40.8%);
+}
+.top_anime-bg_wrap.scroll-01-02 .top_anime-text-02 {
+  transform: translateY(-24%);
+}
+
+
+
+
+.top_anime-bg_wrap.scroll .top_anime-text-01 {
+  transform: translateY(-40.8%);
+}
+.top_anime-text-02 {
+  background-image: url(../images/top_anime-img_02.jpg);
+  background-position: top 50% left 83%;
+  background-size: 36% auto;
+}
+.top_anime-bg_wrap.scroll .top_anime-text-02 {
+  transform: translateY(-24%);
+}
+.top_anime-text-03 {
+  top: 62%;
+  background-image: url(../images/top_anime-img_03.jpg);
+  background-position: top 30.5% left 67.1%;
+  background-size: 16% auto;
+  overflow: hidden;
+}
+.top_anime-text-03 object {
+  background-image: linear-gradient(#fff, #fff);
+  background-position: top left 67.1%;
+  background-size: 16% 80%;
+  background-repeat: no-repeat;
+}
+.top_anime-bg_wrap.scroll .top_anime-text-03 {
+  background-position: top 2% left 67.1%;
+}
+.top_anime-bg_wrap.scroll .top_anime-text-03 object {
+  transform: translateY(-74%);
+}
+.loading_top_border_wrap {
+  pointer-events: none;
+}
+.loading_top_border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: top left / 100% auto no-repeat;
+  background-image: url(../images/top_anime_bg_pc.png);
+  pointer-events: none;
+  z-index: 10;
+}
+@media screen and (max-width: 767px) {
+  /* 既存を上書き ここから ----*/
+  .top_anime_scroll {
+    height: calc(var(--vh) * 100);
+  }
+  .top_anime_scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  .header__top {
+    aspect-ratio: 375 / 721;
+    padding-top: 0 !important;
+  }
+  .header__top.on {
+    background-image: url(../images/main_sp.jpg) !important;
+  }
+    .loading_top_border {
+    background-image: url(../images/top_anime_bg_sp.png) !important;
+  }
+
+
+
+  .top_anime-bg_wrap.scroll-01-02 .top_anime-text-01.sp {
+    transform: translateY(0); /* 必要に応じてモバイル用の値に */
+    /* …その他sp用のbackground-positionなど… */
+  }
+  .top_anime-bg_wrap.scroll-01-02 .top_anime-text-02.sp {
+    transform: translateY(-12.3%);
+    /* … */
+  }
+
+
+
+
+  /* 既存を上書き ここまで ----*/
+  .top_anime-img_wrap {
+    aspect-ratio: 375 / 721;
+  }
+  .top_anime-text-01 {
+    top: 42.8%;
+    background-position: top 27.5% left 65%;
+    background-size: 66% auto;
+    overflow: hidden;
+  }
+  .top_anime-text-01 object {
+    background-image: linear-gradient(#fff, #fff);
+    background-position: top 0% left 65%;
+    background-size: 65% 25%;
+    background-repeat: no-repeat;
+  }
+  /* .top_anime-bg_wrap.scroll .top_anime-text-01 object {
+    transform: translateY(-50.5%);
+  } */
+  .top_anime-bg_wrap.scroll .top_anime-text-01 {
+    background-position: top 1.5% left 65%;
+    transform: translateY(0);
+  }
+  .top_anime-text-02 {
+    background-position: top 24.6% left 80%;
+    background-size: 63% auto;
+  }
+  /* .top_anime-bg_wrap.scroll .top_anime-text-02 {
+    transform: translateY(-12.3%);
+  } */
+  .top_anime-text-03 {
+    top: 75%;
+    background-image: none;
+    background-position: top 19.6% left -24%;
+    background-size: 54% auto;
+  }
+  .top_anime-text-03 object {
+    background-position: top left;
+    background-size: 45% 89%;
+  }
+  .top_anime-bg_wrap.scroll .top_anime-text-03 {
+    background-position: top -.5% left -24%;
+  }
+  .top_anime-bg_wrap.scroll .top_anime-text-03 object {
+    transform: translateY(-94%);
+  }
+  
+  .top_anime-img_01 {
+    width: 66vw;
+    top: 81.5vw;
+    left: 20vw;
+    transform: translateY(55vw);
+  }
+  .top_anime-img_02 {
+    width: 63vw;
+    top: 45.7vw;
+    left: 27.5vw;
+    transform: translateY(33vw);
+  }
+  .top_anime-img_03 {
+    width: 52vw;
+    top: 155vw;
+    left: -10vw;
+    transform: translateY(40vw);
+  }
+  
+  /* ─── SP(<=767px)用 ─── */
+  @media screen and (max-width: 767px) {
+    .top_anime-bg_wrap.scroll-01-02 .top_anime-text-01.sp {
+      background-position: top 1.5% left 65% !important;
+      transform: translateY(0) !important;
+    }
+    .top_anime-bg_wrap.scroll-01-02 .top_anime-text-01.sp object {
+      transform: translateY(-50.5%) !important;
+      transition: transform 1s !important;
+    }
+    .top_anime-bg_wrap.scroll-01-02 .top_anime-text-02.sp {
+      transform: translateY(-12.3%) !important;
+    }
+  
+    /* SPでは .scroll で 03 を無効化 */
+    .top_anime-bg_wrap.scroll .top_anime-text-03.sp {
+      background-position: top 19.6% left -24% !important;
+      transform: none               !important;
+      transition: none              !important;
+      opacity: 1                    !important;
+    }
+    .top_anime-bg_wrap.scroll .top_anime-text-03.sp object {
+      transform: none !important;
+      display:   block !important;
+    }
+  }
+  
+  /* ─── PC(>=768px)用 ─── */
+  @media screen and (min-width: 768px) {
+    /* PCでは .scroll で 03.pc を動かす */
+    .top_anime-bg_wrap.scroll .top_anime-text-03.pc {
+      background-position: top 2% left 67.1% !important;
+    }
+    .top_anime-bg_wrap.scroll .top_anime-text-03.pc object {
+      transform: translateY(-74%) !important;
+      transition: transform 1s cubic-bezier(0,0.55,0.45,1) !important;
+    }
+  }
+}

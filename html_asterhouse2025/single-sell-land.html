@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <title>アスターハウス</title>
+    <meta name="description" content="" />
+    <meta name=”keywords” content=””>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tab.css" />
+    <link rel="stylesheet" href="css/sp.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/abg4zef.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/instagram-feed.js"></script>
+
+    <!-- バウンス防止 -->
+<script>
+    ;(function() {
+      const scrollEl = document.scrollingElement || document.body;
+      let startY = 0;
+    
+      scrollEl.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].screenY;
+      }, { passive: true });
+    
+      scrollEl.addEventListener('touchmove', function(e) {
+        const currentY = e.touches[0].screenY;
+        const deltaY   = currentY - startY;
+    
+        // ── 上端バウンス抑制 ──
+        if (scrollEl.scrollTop <= 0 && deltaY > 0) {
+          e.preventDefault();
+          return;
+        }
+    
+        // ── 下端バウンス抑制 ──
+        const maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight;
+        if (scrollEl.scrollTop >= maxScroll && deltaY < 0) {
+          e.preventDefault();
+          return;
+        }
+      }, { passive: false });
+    })();
+  </script>  
+    
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header class="header__page">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/icon_symbol.svg" alt="アスターハウス" class="pc">
+                <img src="images/logo_header_sp.svg" alt="アスターハウス" class="sp">
+            </a>
+        </div>
+        <div class="contact">
+            <a href="contact.html">お問合せ</a>
+        </div>
+        <div class="openbtn1 sp" id="menuButton"><span></span><span></span><span></span></div>
+        <nav id="g-nav">
+            <div class="panel__logo">
+                <a href="index.html"><img src="images/logo_header_sp.svg" alt="アスターハウス" class="sp"></a>
+            </div>
+            <div class="sns">
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_header_youtube.svg" alt="ユーチューブ"></a></li>
+                    <li><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_header_insta.svg" alt="インスタ"></a></li>
+                    <li><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_header_facebook.svg" alt="フェイスブック"></a></li>
+                    <li><a href="#" target="_blank"><img src="images/icon_header_tiktok.svg" alt="ティックトック"></a></li>    
+                </ul>
+            </div>
+            <div id="g-navi-list">
+                <ul>
+                    <li><a href="archive-sell.html">Sell<span class="sp">販売中物件・土地情報</span></a></li>
+                    <li><a href="archive-works.html">Works<span class="sp">過去の実績一覧</span></a></li>
+                    <li><a href="index.html#concept">Concept<span class="sp">コンセプト</span></a></li>
+                    <li><a href="archive-news.html">News<span class="sp">お知らせ</span></a></li>
+                    <li><a href="company.html">About us<span class="sp">私たちについて</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="panel" id="menuPanel">
+    </header>
+
+    <div class="ttl fadeIn">
+        <h2 class="fadeUp">Sell<span>販売中の土地</span></h2>
+    </div>
+
+    <article>
+        <div class="single__sell">
+            <div class="thumbnail__land">
+                <img src="images/land_sample.jpg" alt="販売中外観" class="relative fadeIn">
+                <img src="images/icon_land01.svg" alt="売り土地" class="icon__land01 fadeUp">
+                <img src="images/icon_land02.svg" alt="土地情報" class="icon__land02 fadeUp">
+            </div>
+
+            <div class="wrapper__single__sell">
+                <div class="sell__info">
+                    <p class="fadeUp">約30坪 | 札幌市中央区</p>
+                    <h2 class="fadeUp">CM001</h2>
+                    <div class="sell__tag">
+                        <li class="fadeUp">コンビニ</li>
+                        <li class="fadeUp">小学校</li>
+                        <li class="fadeUp">保育園</li>
+                        <li class="fadeUp">スーパー</li>
+                        <li class="fadeUp">公共施設</li>
+                        <li class="fadeUp">中学校</li>
+                        <li class="fadeUp">高校</li>
+                    </div>
+                    <h3 class="fadeUp">札幌市中央区宮の森2条9丁目<br>
+                        2区画</h3>
+                    <p class="fadeUp">近くに保育園がある、小学校がある、コンビニがあるといった生活する上で便利そうな周辺に
+                        あると便利な建物の情報を2~3行程度で簡単に記載していただきたいです。</p>
+                </div>
+                <div class="sell__price__land fadeUp">
+                    <p class="fadeUp">2,300<span>万円</span></p>
+                </div>    
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <h2 class="h2_ttl fadeUp">Spec<span>仕様詳細</span></h2>
+        <div class="sell__spec">
+            <div class="textbox__sell__spec">
+                <dl class="sell__spec__area">
+                    <div class="line-item">
+                        <dt class="fadeUp fadeUp">土地面積</dt>
+                        <dd class="meters fadeUp">115.3</dd>
+                        <dd class="tsubo fadeUp"></dd>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <script>
+                        // 坪数の演算（小数第2位まで）
+                        let metersElements = document.querySelectorAll(".meters");
+                        let tsuboElements = document.querySelectorAll(".tsubo");
+
+                        // metersとtsuboの数が同じか確認して処理
+                        if (metersElements.length === tsuboElements.length) {
+                            metersElements.forEach((metersElement, index) => {
+                                let metersValue = parseFloat(metersElement.textContent);
+                                if (!isNaN(metersValue)) {
+                                    let tsuboValue = (metersValue * 0.3025).toFixed(2); // 小数点2桁まで表示
+                                    tsuboElements[index].textContent = tsuboValue;
+                                }
+                            });
+                        }
+                    </script>
+
+                    <div class="line-item">
+                        <dt class="fadeUp">用途地域</dt>
+                        <dd class="spec100 fadeUp">第1種低層住居</dd>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="line-item">
+                        <dt class="fadeUp">備考</dt>
+                        <dd class="spec100 fadeUp">建築条件付き<br>その他備考</dd>
+                        <div class="line-wrapper"></div>
+                    </div>
+                </dl>
+            </div>
+            <div class="imgbox__sell__spec">
+                <img src="images/spec.svg" alt="仕様">
+            </div>
+        </div>    
+    </article>
+
+
+    <article class="relative">
+        <h2 class="h2_ttl fadeUp">Reserve<span>この物件を見学予約する</span></h2>
+        <div class="wrapper">
+            <div class="imgbox__form__reserve">
+                <object data="images/reserve.svg" type="image/svg+xml" class="svg__company01"></object>
+            </div>
+            <div class="textbox__form">
+                <div class="form__contact">
+                    <div class="note__form fadeUp">（<span class="main__color bold">＊</span>）は必須事項となります。</div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">来場希望物件<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <select type="property" class="form-item-select-property">
+                            <option value="SH001">SH001</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">来場日時（第一希望）<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <div class="form-date-group">
+                            <div class="date-wrap">
+                                <input id="visit-date datepicker1" type="date" class="date-input" required/>
+                                <label for="visit-date" class="date-placeholder">
+                                    <span class="year">年</span>
+                                    <span class="month">月</span>
+                                    <span class="day">日</span>
+                                </label>
+                            </div>
+                            <script>
+                                const inp = document.getElementById('date');
+                                const ph  = document.querySelector('.date-placeholder');
+                                inp.addEventListener('input', () => {
+                                ph.style.opacity = inp.value ? '0' : '1';
+                                });
+                                inp.addEventListener('focus',  () => ph.style.opacity = '0');
+                                inp.addEventListener('blur',   () => ph.style.opacity = inp.value ? '0' : '1');
+                            </script>
+                            <!-- <input type="date" id="datepicker1" placeholder="年/　月/　日"> -->
+                            <select type="time" class="form-item-select-time" required>
+                                <option value="" disabled selected hidden>時</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                            </select>    
+                        </div>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">来場日時（第二希望）<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <div class="form-date-group">
+                            <div class="date-wrap">
+                                <input id="visit-date datepicker1" type="date" class="date-input" required/>
+                                <label for="visit-date" class="date-placeholder">
+                                    <span class="year">年</span>
+                                    <span class="month">月</span>
+                                    <span class="day">日</span>
+                                </label>
+                            </div>
+                            <select type="time" class="form-item-select-time" required>
+                                <option value="" disabled selected hidden>時</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                            </select>    
+                        </div>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">お名前<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="text" class="form-item-input" placeholder="例：山田太郎">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">フリガナ</p>
+                        <input type="text" class="form-item-input" placeholder="例：ヤマダタロウ">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">メールアドレス<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="email" class="form-item-input" placeholder="例：〇〇〇〇＠〇〇〇〇.com">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">ご住所<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="text" class="form-item-input" placeholder="例：札幌市中央区〇条〇丁目〇-〇">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">電話番号<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="text" class="form-item-input" placeholder="例：011-123-4567">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">メッセージ本文</p>
+                        <textarea class="form-item-textarea" placeholder="質問等ありましたらご記入ください。"></textarea>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <label for="confirmation" class="checkbox-label fadeUp">
+                        <input type="checkbox" id="confirmation" name="confirmation">
+                        送信内容を確認し、チェックしてから送信して下さい。
+                    </label>
+                    <buttom type="submit" class="form-btn fadeUp">送信</buttom>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="info__3col">
+            <div class="contact">
+                <a href="contact.html">
+                    <div class="contact__inner">
+                        <img src="images/icon_footer_contact.svg" alt="お問合せ">
+                        <img src="images/icon_footer_request.svg" alt="資料請求">
+                        <p>お問合せ / 資料請求<span>Contact</span></p>
+                    </div>    
+                </a>
+            </div>
+            <div class="tel">
+                <a href="tel:0120-802-801">
+                  <img src="images/icon_footer_freenumber.svg" alt="フリーダイヤル" class="pc">
+                  <img src="images/icon_footer_phone.svg" alt="電話をかける" class="sp">
+                  <p class="tel__number pc"><span class="clarendon">Tel.</span>0120-802-801</p><p class="tel__number sp">フリーダイヤル</p>
+                  <p class="tel__hours">受付時間 10:00-18:00 / 定休日 水曜日</p>    
+                </a>
+            </div>
+            <div class="consultation">
+                <a href="archive-sell.html#consul">
+                    <div class="consultation__inner">
+                        <img src="images/icon_footer_consul.svg" alt="家づくり相談会">
+                        <p>家づくり相談会<span>Consultation</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="footer__block">
+            <div class="footer__left">
+                <ul class="footer__logo">
+                    <li><a href="index.html"><img src="images/logo_asterhouse.svg" alt="アスターハウス"></a></li>
+                    <li><a href="https://aster-estate.com" target="_blank"><img src="images/logo_aster.svg" alt="アスター"></a></li>
+                    <li><a href="https://reform.aster-estate.com" target="_blank"><img src="images/logo_rinobe.svg" alt="リノベのアスター"></a></li>
+                </ul>
+            </div>
+            <div class="footer__right">
+                <div class="site__info">
+                    <ul class="page__list">
+                        <li><a href="archive-sell.html">販売中物件・土地情報</a></li>
+                        <li><a href="archive-works.html">過去の施工実績</a></li>
+                        <li><a href="index.html#concept">コンセプト</a></li>
+                        <li><a href="archive-news.html">お知らせ</a></li>
+                        <li><a href="company.html">私たちについて</a></li>
+                        <li class="pc">SNS
+                            <span class="footer__sns"><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_footer_youtube.svg" alt="ユーチューブ"></a></span>
+                            <span class="footer__sns"><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_footer_insta.svg" alt="インスタグラム"></a></span>
+                            <span class="footer__sns"><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_footer_facebook.svg" alt="フェイスブック"></a></span>
+                            <span class="footer__sns"><a href=""><img src="images/icon_footer_tiktok.svg" alt="tiktok"></a></span>
+                        </li>
+                    </ul>
+                    <ul class="page__list">
+                        <li><a href="contact.html">各種お問合せ</a></li>
+                        <li><a href="reserve.html">来場予約</a></li>
+                        <li><a href="company.html#privacy">プライバシーポリシー</a></li>
+                        <li class="sp">SNS
+                            <div class="page__list__sns">
+                                <span class="footer__sns__sp"><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_footer_youtube.svg" alt="ユーチューブ"></a></span>
+                                <span class="footer__sns__sp"><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_footer_insta.svg" alt="インスタグラム"></a></span>
+                                <span class="footer__sns__sp"><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_footer_facebook.svg" alt="フェイスブック"></a></span>
+                                <span class="footer__sns__sp"><a href=""><img src="images/icon_footer_tiktok.svg" alt="tiktok"></a></span>    
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <dl class="company__info">
+                    <dt>所在地</dt>
+                    <dd>〒065-0013<br>　札幌市東区北13条東16丁目1-1</dd>
+                    <dt>営業時間</dt>
+                    <dd>9:00 - 18:00</dd>
+                    <dt>電話番号</dt>
+                    <dd><a href="tel:0112140455" class="tel-link">011-214-0455</a></dd>
+                </dl>
+                <p class="copy">Copyright (c) Aster House All Right Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
+
+    <script>
+        $(function() {
+          $("#datepicker1, #datepicker2").datepicker({
+            dateFormat: "yy-mm-dd" // 表示する日付フォーマット
+          });
+        });
+      </script>
+
+</body>
+</html>

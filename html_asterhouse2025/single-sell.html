@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <title>アスターハウス</title>
+    <meta name="description" content="" />
+    <meta name=”keywords” content=””>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tab.css" />
+    <link rel="stylesheet" href="css/sp.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/abg4zef.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/instagram-feed.js"></script>
+    
+    <!-- バウンス防止 -->
+<script>
+    ;(function() {
+      const scrollEl = document.scrollingElement || document.body;
+      let startY = 0;
+    
+      scrollEl.addEventListener('touchstart', function(e) {
+        startY = e.touches[0].screenY;
+      }, { passive: true });
+    
+      scrollEl.addEventListener('touchmove', function(e) {
+        const currentY = e.touches[0].screenY;
+        const deltaY   = currentY - startY;
+    
+        // ── 上端バウンス抑制 ──
+        if (scrollEl.scrollTop <= 0 && deltaY > 0) {
+          e.preventDefault();
+          return;
+        }
+    
+        // ── 下端バウンス抑制 ──
+        const maxScroll = scrollEl.scrollHeight - scrollEl.clientHeight;
+        if (scrollEl.scrollTop >= maxScroll && deltaY < 0) {
+          e.preventDefault();
+          return;
+        }
+      }, { passive: false });
+    })();
+  </script>  
+    
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header class="header__page">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/icon_symbol.svg" alt="アスターハウス" class="pc">
+                <img src="images/logo_header_sp.svg" alt="アスターハウス" class="sp">
+            </a>
+        </div>
+        <div class="contact">
+            <a href="contact.html">お問合せ</a>
+        </div>
+        <div class="openbtn1 sp" id="menuButton"><span></span><span></span><span></span></div>
+        <nav id="g-nav">
+            <div class="panel__logo">
+                <a href="index.html"><img src="images/logo_header_sp.svg" alt="アスターハウス" class="sp"></a>
+            </div>
+            <div class="sns">
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_header_youtube.svg" alt="ユーチューブ"></a></li>
+                    <li><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_header_insta.svg" alt="インスタ"></a></li>
+                    <li><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_header_facebook.svg" alt="フェイスブック"></a></li>
+                    <li><a href="#" target="_blank"><img src="images/icon_header_tiktok.svg" alt="ティックトック"></a></li>    
+                </ul>
+            </div>
+            <div id="g-navi-list">
+                <ul>
+                    <li><a href="archive-sell.html">Sell<span class="sp">販売中物件・土地情報</span></a></li>
+                    <li><a href="archive-works.html">Works<span class="sp">過去の実績一覧</span></a></li>
+                    <li><a href="index.html#concept">Concept<span class="sp">コンセプト</span></a></li>
+                    <li><a href="archive-news.html">News<span class="sp">お知らせ</span></a></li>
+                    <li><a href="company.html">About us<span class="sp">私たちについて</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="panel" id="menuPanel">
+    </header>
+
+    <div class="ttl fadeIn">
+        <h2 class="fadeUp">Sell<span>販売中の物件</span></h2>
+    </div>
+
+    <article>
+        <div class="single__sell">
+            <div class="thumbnail fadeIn">
+                <img src="images/sell_facade.jpg" alt="販売中外観" class="fadeIn">
+                <img src="images/icon_facade.svg" alt="外観" class="icon__facade fadeIn">
+            </div>
+
+            <div class="wrapper__single__sell">
+                <div class="sell__info">
+                    <p class="fadeUp">4LDK | 札幌市東区北〇条東〇丁目</p>
+                    <h2 class="roboto fadeUp">SH001</h2>
+                    <div class="sell__tag fadeUp">
+                        <li class="fadeIn">建売住宅</li>
+                        <li class="fadeIn">シンプルモダン</li>
+                        <li class="fadeIn">吹き抜け</li>
+                        <li class="fadeIn">ナチュラル</li>
+                        <li class="fadeIn">フリースペース</li>
+                        <li class="fadeIn">和室</li>
+                        <li class="fadeIn">ユニーク</li>
+                    </div>
+                    <h3 class="fadeUp">サイディングと木羽目板で演出する、<br>
+                        ナチュラルテイストの家</h3>
+                    <p class="justify fadeUp">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入りま
+                        す。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入り
+                        ます。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入</p>
+                </div>
+                <div class="sell__price">
+                    <p class="fadeUp">2,300<span>万円</span></p>
+                    <p class="notion fadeUp pc">※価格は本体工事のみです。</p>
+                </div>    
+            </div>
+
+            <article>
+                <div class="wrapper__p0">
+                    <div class="interior__contents">
+                        <div class="icon__interior fadeIn">
+                            <img src="images/icon_interior.svg" alt="内観" class="icon__ionterior">
+                        </div>
+                        <div class="tabs__interior">
+                            <!-- Tab 1 -->
+                            <div class="tab_item_wrapper">
+                                <input id="p1" type="radio" name="tab_item_interior" checked>
+                                <label class="tab_item roboto" for="p1">1</label>
+                                <div class="tab_content" id="p1_content">
+                                    <div class="tab_content_description">
+                                        <img src="images/interior_point.jpg" alt="フリースペース" class="fadeIn">
+                                        <div class="icon__point pc">
+                                            <img src="images/icon_interior_point01.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="icon__point sp">
+                                            <img src="images/icon_interior_point01_sp.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="sell__interior__tag fadeUp">
+                                            <li>ナチュラル</li>
+                                            <li>フリースペース</li>
+                                            <li>ユニーク</li>
+                                        </div>        
+                                        <h3 class="fadeUp">1F フリースペース</h3>
+                                        <p class="fadeUp">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 2 -->
+                            <div class="tab_item_wrapper">
+                                <input id="p2" type="radio" name="tab_item_interior">
+                                <label class="tab_item" for="p2">2</label>
+                                <div class="tab_content" id="p2_content">
+                                    <div class="tab_content_description">
+                                        <img src="images/interior_point.jpg" alt="フリースペース">
+                                        <div class="icon__point pc">
+                                            <img src="images/icon_interior_point02.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="icon__point sp">
+                                            <img src="images/icon_interior_point02_sp.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="sell__interior__tag fadeUp">
+                                            <li>タグポイント2</li>
+                                            <li>タグポイント2</li>
+                                            <li>タグポイント2</li>
+                                        </div>        
+                                        <h3 class="fadeUp">1F キッチン</h3>
+                                        <p class="fadeUp">ここにポイント2テキストが入ります。ここにポイント2テキストが入ります。ここにポイント2テキストが入ります。</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 3 -->
+                            <div class="tab_item_wrapper">
+                                <input id="p3" type="radio" name="tab_item_interior">
+                                <label class="tab_item" for="p3">3</label>
+                                <div class="tab_content" id="p3_content">
+                                    <div class="tab_content_description">
+                                        <img src="images/interior_point.jpg" alt="フリースペース" class="fadeIn">
+                                        <div class="icon__point pc">
+                                            <img src="images/icon_interior_point03.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="icon__point sp">
+                                            <img src="images/icon_interior_point03_sp.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="sell__interior__tag fadeUp">
+                                            <li>タグポイント3</li>
+                                            <li>タグポイント3</li>
+                                        </div>        
+                                        <h3 class="fadeUp">1F パントリー</h3>
+                                        <p class="fadeUp">ここにポイント3テキストが入ります。ここにポイント3テキストが入ります。ここにポイント3テキストが入ります。ここにポイント3テキストが入ります。</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 4 -->
+                            <div class="tab_item_wrapper">
+                                <input id="p4" type="radio" name="tab_item_interior">
+                                <label class="tab_item" for="p4">4</label>
+                                <div class="tab_content" id="p4_content">
+                                    <div class="tab_content_description">
+                                        <img src="images/interior_point.jpg" alt="フリースペース" class="fadeIn">
+                                        <div class="icon__point pc">
+                                            <img src="images/icon_interior_point04.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="icon__point sp">
+                                            <img src="images/icon_interior_point04_sp.svg" alt="" class="fadeIn">
+                                        </div>
+                                        <div class="sell__interior__tag fadeUp">
+                                            <li>タグポイント4</li>
+                                            <li>タグポイント4</li>
+                                            <li>タグポイント4</li>
+                                            <li>タグポイント4</li>
+                                        </div>        
+                                        <h3 class="fadeUp">2F フリースペース</h3>
+                                        <p class="fadeUp">ここにポイント4テキストが入ります。ここにポイント4テキストが入ります。ここにポイント4テキストが入ります。ここにポイント4。</p>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </article>
+    
+            <article>
+                <h2 class="h2_ttl fadeUp">Drawing<span>住宅図面</span></h2>
+                <div class="wrapper__p0">
+                    <div class="drawing__contents">
+                        <div class="tabs__drawing">
+                            <!-- Tab 1 -->
+                            <div class="tab_item_wrapper">
+                                <input id="f1" type="radio" name="tab_item_drawing" checked>
+                                <label class="tab_item fadeIn" for="f1">1 F</label>
+                                <div class="tab_content" id="f1_content">
+                                    <div class="tab_content_description">
+                                        <h3 class="fadeUp">1F infomation</h3>
+                                        <div class="imgbox__drawing fadeIn">
+                                            <img src="images/drawing_plan.jpg" alt="間取り" class="fadeIn">
+                                        </div>
+                                        <dl class="sell__drawing__scale fadeUp">
+                                            <div class="line-item">
+                                                <dt>洋　　室</dt>
+                                                <dd>
+                                                    <span class="point"><img src="images/icon_drawing_point01.svg" alt=""></span>
+                                                    <span class="scale">6帖</span>/<span class="strage">WIC</span>
+                                                </dd>
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>洋　　室</dt>
+                                                <dd>
+                                                    <span class="scale">6.5帖</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>吹　　抜</dt>
+                                                <dd>
+                                                    <span class="point"><img src="images/icon_drawing_point02.svg" alt=""></span>
+                                                    <span class="scale">7.5帖</span>/<span class="strage">CL</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>六文字記入可</dt>
+                                                <dd>
+                                                    <span class="scale">00.0帖</span>/<span class="strage">3文字</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 2 -->
+                            <div class="tab_item_wrapper">
+                                <input id="f2" type="radio" name="tab_item_drawing">
+                                <label class="tab_item fadeIn" for="f2">2 F</label>
+                                <div class="tab_content" id="f2_content">
+                                    <div class="tab_content_description">
+                                        <h3 class="fadeUp">2F infomation</h3>
+                                        <div class="imgbox__drawing fadeIn">
+                                            <img src="images/drawing_plan2.jpg" alt="間取り" class="fadeIn">
+                                        </div>
+                                        <dl class="sell__drawing__scale fadeUp">
+                                            <div class="line-item">
+                                                <dt>洋　　室　2</dt>
+                                                <dd>
+                                                    <span class="point"><img src="images/icon_drawing_point01.svg" alt=""></span>
+                                                    <span class="scale">6帖</span>/<span class="strage">WIC</span>
+                                                </dd>
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>洋　　室</dt>
+                                                <dd>
+                                                    <span class="scale">6.5帖</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>吹　　抜</dt>
+                                                <dd>
+                                                    <span class="point"><img src="images/icon_drawing_point02.svg" alt=""></span>
+                                                    <span class="scale">7.5帖</span>/<span class="strage">CL</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>六文字記入可</dt>
+                                                <dd>
+                                                    <span class="scale">00.0帖</span>/<span class="strage">3文字</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- Tab 3 -->
+                            <div class="tab_item_wrapper">
+                                <input id="f3" type="radio" name="tab_item_drawing">
+                                <label class="tab_item fadeIn" for="f3">3 F</label>
+                                <div class="tab_content" id="f3_content">
+                                    <div class="tab_content_description">
+                                        <h3 class="fadeUp">3F infomation</h3>
+                                        <div class="imgbox__drawing fadeIn">
+                                            <img src="images/drawing_plan3.jpg" alt="間取り" class="fadeIn">
+                                        </div>
+                                        <dl class="sell__drawing__scale fadeUp">
+                                            <div class="line-item">
+                                                <dt>洋　　室　3</dt>
+                                                <dd>
+                                                    <span class="point"><img src="images/icon_drawing_point01.svg" alt=""></span>
+                                                    <span class="scale">6帖</span>/<span class="strage">WIC</span>
+                                                </dd>
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>洋　　室</dt>
+                                                <dd>
+                                                    <span class="scale">6.5帖</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>洋　　室</dt>
+                                                <dd>
+                                                    <span class="point"><img src="images/icon_drawing_point02.svg" alt=""></span>
+                                                    <span class="scale">7.5帖</span>/<span class="strage">CL</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                            <div class="line-item">
+                                                <dt>六文字記入可</dt>
+                                                <dd>
+                                                    <span class="scale">00.0帖</span>/<span class="strage">3文字</span>
+                                                </dd>    
+                                                <div class="line-wrapper"></div>
+                                            </div>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <h2 class="h2_ttl fadeUp">Spec<span>仕様詳細</span></h2>
+                <div class="sell__spec">
+                    <div class="textbox__sell__spec">
+                        <dl class="sell__spec__area fadeUp">
+                            <div class="line-item">
+                                <dt>敷地面積</dt>
+                                <dd class="meters">115.3</dd>
+                                <dd class="tsubo"></dd>    
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="line-item">
+                                <dt>建物面積<span>1F</span></dt>
+                                <dd class="meters">55.48</dd>
+                                <dd class="tsubo"></dd>                                    
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="line-item">
+                                <dt><span>2F</span></dt>
+                                <dd class="meters">55.48</dd>
+                                <dd class="tsubo"></dd>                                    
+                                <div class="line-wrapper"></div>
+                            </div>
+                            <div class="line-item">
+                                <dt>延床面積</dt>
+                                <dd class="meters">110.96</dd>
+                                <dd class="tsubo"></dd>    
+                                <div class="line-wrapper"></div>
+                            </div>
+                        </dl>
+                        <script>
+                            // 坪数の演算（小数第2位まで）
+                            let metersElements = document.querySelectorAll(".meters");
+                            let tsuboElements = document.querySelectorAll(".tsubo");
+    
+                            // metersとtsuboの数が同じか確認して処理
+                            if (metersElements.length === tsuboElements.length) {
+                                metersElements.forEach((metersElement, index) => {
+                                    let metersValue = parseFloat(metersElement.textContent);
+                                    if (!isNaN(metersValue)) {
+                                        let tsuboValue = (metersValue * 0.3025).toFixed(2); // 小数点2桁まで表示
+                                        tsuboElements[index].textContent = tsuboValue;
+                                    }
+                                });
+                            }
+                        </script>    
+                    </div>
+                    <div class="imgbox__sell__spec pc">
+                        <object data="images/spec.svg" type="image/svg+xml" class="svg__company01 fadeIn"></object>
+                    </div>
+                </div>    
+            </article>
+        </div>
+    </article>
+
+    <article>
+        <h2 class="h2_ttl fadeUp">After service<span>アフターサービス</span></h2>
+
+        <div class="wrapper__p0">
+            <div class="after__contents fadeUp">
+                <div class="tabs__after">
+                    <!-- Tab 1 -->
+                    <div class="tab_item_wrapper">
+                        <input id="inspection" type="radio" name="tab_item" checked>
+                        <label class="tab_item fadeIn" for="inspection">1</label>
+                        <div class="tab_content" id="inspection_content">
+                            <div class="tab_content_description">
+                                <img src="images/afterservice01.jpg" alt="定期点検" class="fadeIn">
+                                <h3 class="fadeUp">定期点検</h3>
+                                <p class="fadeUp">入居後も住宅の安全を確認するため、一定期間ごとに専門スタッフが点検。長く快適に暮らせるようサポートします。</p>    
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 2 -->
+                    <div class="tab_item_wrapper">
+                        <input id="defects" type="radio" name="tab_item">
+                        <label class="tab_item fadeIn" for="defects">2</label>
+                        <div class="tab_content" id="defects_content">
+                            <div class="tab_content_description">
+                                <img src="images/afterservice02.jpg" alt="瑕疵保証" class="fadeIn">
+                                <h3 class="fadeUp">瑕疵保険（10年）</h3>
+                                <p class="fadeUp">入居後も住宅の安全を確認するため、一定期間ごとに専門スタッフが点検。長く快適に暮らせるようサポートします。</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Tab 3 -->
+                    <div class="tab_item_wrapper">
+                        <input id="ground" type="radio" name="tab_item">
+                        <label class="tab_item fadeIn" for="ground">3</label>
+                        <div class="tab_content" id="ground_content">
+                            <div class="tab_content_description">
+                                <img src="images/afterservice03.jpg" alt="地盤保証" class="fadeIn">
+                                <h3 class="fadeUp">地盤保証</h3>
+                                <p class="fadeUp">建築前の地盤調査を実施し、不同沈下などのリスクに対応。万が一問題が発生した場合は補修費用を保証します。</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Tab 4 -->
+                    <div class="tab_item_wrapper">
+                        <input id="facility" type="radio" name="tab_item">
+                        <label class="tab_item fadeIn5" for="facility">4</label>
+                        <div class="tab_content" id="facility_content">
+                            <div class="tab_content_description">
+                                <img src="images/afterservice04.jpg" alt="設備保証" class="fadeIn">
+                                <h3 class="fadeUp">設備保証（有償）</h3>
+                                <p class="fadeUp">キッチン・給湯器・エアコンなどの住宅設備の故障に対応。保証を追加することで修理費の負担を軽減できます。</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>    
+            </div>
+        </div>
+    </article>
+
+    <article class="relative">
+        <h2 class="h2_ttl">Reserve<span>この物件を見学予約する</span></h2>
+        <div class="wrapper">
+            <div class="imgbox__form__reserve">
+                <object data="images/reserve.svg" type="image/svg+xml" class="svg__company01"></object>
+            </div>
+            <div class="textbox__form">
+                <div class="form__contact">
+                    <div class="note__form fadeUp">（<span class="main__color bold">＊</span>）は必須事項となります。</div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">来場希望物件<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <select type="property" class="form-item-select-property">
+                            <option value="SH001">SH001</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">来場日時（第一希望）<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <div class="form-date-group">
+                            <div class="date-wrap">
+                                <input id="visit-date datepicker1" type="date" class="date-input" required/>
+                                <label for="visit-date" class="date-placeholder">
+                                    <span class="year">年</span>
+                                    <span class="month">月</span>
+                                    <span class="day">日</span>
+                                </label>
+                            </div>
+                            <script>
+                                const inp = document.getElementById('date');
+                                const ph  = document.querySelector('.date-placeholder');
+                                inp.addEventListener('input', () => {
+                                ph.style.opacity = inp.value ? '0' : '1';
+                                });
+                                inp.addEventListener('focus',  () => ph.style.opacity = '0');
+                                inp.addEventListener('blur',   () => ph.style.opacity = inp.value ? '0' : '1');
+                            </script>
+                            <!-- <input type="date" id="datepicker1" placeholder="年/　月/　日"> -->
+                            <select type="time" class="form-item-select-time" required>
+                                <option value="" disabled selected hidden>時</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                            </select>    
+                        </div>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">来場日時（第二希望）<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <div class="form-date-group">
+                            <div class="date-wrap">
+                                <input id="visit-date datepicker1" type="date" class="date-input" required/>
+                                <label for="visit-date" class="date-placeholder">
+                                    <span class="year">年</span>
+                                    <span class="month">月</span>
+                                    <span class="day">日</span>
+                                </label>
+                            </div>
+                            <select type="time" class="form-item-select-time" required>
+                                <option value="" disabled selected hidden>時</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                            </select>    
+                        </div>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">お名前<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="text" class="form-item-input" placeholder="例：山田太郎">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">フリガナ</p>
+                        <input type="text" class="form-item-input" placeholder="例：ヤマダタロウ">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">メールアドレス<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="email" class="form-item-input" placeholder="例：〇〇〇〇＠〇〇〇〇.com">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">ご住所<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="text" class="form-item-input" placeholder="例：札幌市中央区〇条〇丁目〇-〇">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">電話番号<sup class="required__sp">＊</sup></p><div class="required"></div>
+                        <input type="text" class="form-item-input" placeholder="例：011-123-4567">
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <div class="form-item fadeUp line-item">
+                        <p class="form-item-label">メッセージ本文</p>
+                        <textarea class="form-item-textarea" placeholder="質問等ありましたらご記入ください。"></textarea>
+                        <div class="line-wrapper"></div>
+                    </div>
+                    <label for="confirmation" class="checkbox-label fadeUp">
+                        <input type="checkbox" id="confirmation" name="confirmation">
+                        送信内容を確認し、チェックしてから送信して下さい。
+                    </label>
+                    <buttom type="submit" class="form-btn fadeUp">送信</buttom>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="info__3col">
+            <div class="contact">
+                <a href="contact.html">
+                    <div class="contact__inner">
+                        <img src="images/icon_footer_contact.svg" alt="お問合せ">
+                        <img src="images/icon_footer_request.svg" alt="資料請求">
+                        <p>お問合せ / 資料請求<span>Contact</span></p>
+                    </div>    
+                </a>
+            </div>
+            <div class="tel">
+                <a href="tel:0120-802-801">
+                  <img src="images/icon_footer_freenumber.svg" alt="フリーダイヤル" class="pc">
+                  <img src="images/icon_footer_phone.svg" alt="電話をかける" class="sp">
+                  <p class="tel__number pc"><span class="clarendon">Tel.</span>0120-802-801</p><p class="tel__number sp">フリーダイヤル</p>
+                  <p class="tel__hours">受付時間 10:00-18:00 / 定休日 水曜日</p>    
+                </a>
+            </div>
+            <div class="consultation">
+                <a href="archive-sell.html#consul">
+                    <div class="consultation__inner">
+                        <img src="images/icon_footer_consul.svg" alt="家づくり相談会">
+                        <p>家づくり相談会<span>Consultation</span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="footer__block">
+            <div class="footer__left">
+                <ul class="footer__logo">
+                    <li><a href="index.html"><img src="images/logo_asterhouse.svg" alt="アスターハウス"></a></li>
+                    <li><a href="https://aster-estate.com" target="_blank"><img src="images/logo_aster.svg" alt="アスター"></a></li>
+                    <li><a href="https://reform.aster-estate.com" target="_blank"><img src="images/logo_rinobe.svg" alt="リノベのアスター"></a></li>
+                </ul>
+            </div>
+            <div class="footer__right">
+                <div class="site__info">
+                    <ul class="page__list">
+                        <li><a href="archive-sell.html">販売中物件・土地情報</a></li>
+                        <li><a href="archive-works.html">過去の施工実績</a></li>
+                        <li><a href="index.html#concept">コンセプト</a></li>
+                        <li><a href="archive-news.html">お知らせ</a></li>
+                        <li><a href="company.html">私たちについて</a></li>
+                        <li class="pc">SNS
+                            <span class="footer__sns"><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_footer_youtube.svg" alt="ユーチューブ"></a></span>
+                            <span class="footer__sns"><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_footer_insta.svg" alt="インスタグラム"></a></span>
+                            <span class="footer__sns"><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_footer_facebook.svg" alt="フェイスブック"></a></span>
+                            <span class="footer__sns"><a href=""><img src="images/icon_footer_tiktok.svg" alt="tiktok"></a></span>
+                        </li>
+                    </ul>
+                    <ul class="page__list">
+                        <li><a href="contact.html">各種お問合せ</a></li>
+                        <li><a href="reserve.html">来場予約</a></li>
+                        <li><a href="company.html#privacy">プライバシーポリシー</a></li>
+                        <li class="sp">SNS
+                            <div class="page__list__sns">
+                                <span class="footer__sns__sp"><a href="https://www.youtube.com/channel/UCoIVR-wyZFAeAOx5vTYoVxw" target="_blank"><img src="images/icon_footer_youtube.svg" alt="ユーチューブ"></a></span>
+                                <span class="footer__sns__sp"><a href="https://www.instagram.com/__aster_house" target="_blank"><img src="images/icon_footer_insta.svg" alt="インスタグラム"></a></span>
+                                <span class="footer__sns__sp"><a href="https://www.facebook.com/people/%E3%82%A2%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%82%A6%E3%82%B9/100083320001835/" target="_blank"><img src="images/icon_footer_facebook.svg" alt="フェイスブック"></a></span>
+                                <span class="footer__sns__sp"><a href=""><img src="images/icon_footer_tiktok.svg" alt="tiktok"></a></span>    
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <dl class="company__info">
+                    <dt>所在地</dt>
+                    <dd>〒065-0013<br>　札幌市東区北13条東16丁目1-1</dd>
+                    <dt>営業時間</dt>
+                    <dd>9:00 - 18:00</dd>
+                    <dt>電話番号</dt>
+                    <dd><a href="tel:0112140455" class="tel-link">011-214-0455</a></dd>
+                </dl>
+                <p class="copy">Copyright (c) Aster House All Right Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    
+
+    <script>
+        $(function() {
+          $("#datepicker1, #datepicker2").datepicker({
+            dateFormat: "yy-mm-dd" // 表示する日付フォーマット
+          });
+        });
+      </script>
+
+</body>
+</html>
