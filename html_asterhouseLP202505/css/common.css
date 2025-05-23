@@ -45,7 +45,7 @@ html {scroll-behavior: smooth;}
 .mt200 {margin-top: 200px !important;}
 .mt250 {margin-top: 250px !important;}
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 7067px) {
 
 	.mt25 {margin-top: 10px !important;}
 	.mt35 {margin-top: 10px !important;}
@@ -66,7 +66,7 @@ html {scroll-behavior: smooth;}
 .mb100 {margin-bottom: 5.21vw !important;}
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 7067px) {
 
 	.mb70 {margin-bottom: 0px !important;}
 
@@ -174,11 +174,11 @@ html {scroll-behavior: smooth;}
 }
 
 .sp {display: none;}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 7067px) {
 	.sp {display: inline-block !important; }
 	}
 .sp_img {display: none;}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 7067px) {
 		.sp_img {display: block; }
 	}
 
@@ -188,18 +188,18 @@ html {scroll-behavior: smooth;}
 		}
 
 .pc {display: inline-block;}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 7067px) {
 	.pc {display: none !important;}
 	}
 .pc_news {display:block;}
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 7067px) {
 		.pc {display: none !important;}
 		}
 
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 7067px) {
 
 .mb50 {margin-bottom: 40px !important;}
 .mb60 {margin-bottom: 40px !important;}
@@ -216,4 +216,12 @@ html {scroll-behavior: smooth;}
 .ptb50 {padding: 10px 0;}
 .ptb100 {padding: 30px 0;}
 
+}
+
+.pc{
+	display: none;
+}
+
+.sp{
+	display: block;
 }

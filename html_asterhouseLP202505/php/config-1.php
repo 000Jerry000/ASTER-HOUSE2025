@@ -16,7 +16,7 @@ $thanks_page_url = '';
 $spam_check = 0;
 
 //メールフォームを設置するサイトのドメイン -- 上記のドメインチェック機能がオンの場合にのみ設定する必要があります。 --
-$domain_name = 'aster-estate.com';
+$domain_name = 'aster-hoause.com';
 
 //送信前の入力チェックが動作したときだけメールを受け付ける機能 -- オフの場合は0、オンの場合は1にしてください。 --
 $javascript_check = '1';
