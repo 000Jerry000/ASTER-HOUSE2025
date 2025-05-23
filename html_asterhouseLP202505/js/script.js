@@ -74,28 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 観測したいリンク要素を取得
-  const links = document.querySelectorAll(".link_form a");
-
-  // IntersectionObserver の設定
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // 画面に入ったら .animated を付与
-        entry.target.classList.add("animated");
-        // 一度アニメーションしたらもう観測しなくて OK
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  // 各リンクを監視
-  links.forEach(link => observer.observe(link));
-});
-
 
 // top__conceptのアニメーション発火タイミング
 document.addEventListener("DOMContentLoaded", function () {
@@ -125,48 +103,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// footer info_4colの表示制御（要内容確認、反映されず）
+// footer info_3colの表示制御（要内容確認、反映されず）
 document.addEventListener("DOMContentLoaded", () => {
-  const info4col = document.querySelector(".info_4col");
-  if (!info4col) return;
-
-  const topPaths = [
-    "/index.html",
-    "/",
-    "/index.php",
-    "/front-page.php",
-    "/lp-aster-test/",
-    "/lp-aster-test/index.html",
-  ];
-
-  if ( topPaths.includes(window.location.pathname) ) {
-    // トップページ：初期は非表示、スクロールで制御
-    const updateVisibility = () => {
-      // デバイス幅によって閾値を切り替え
-      const threshold = window.innerWidth <= 600 ? 600 : 800;
-      if (window.scrollY > threshold) {
-        info4col.classList.add("visible");
-      } else {
-        info4col.classList.remove("visible");
-      }
-    };
-
-    // 初回判定＆スクロール時に実行
-    updateVisibility();
-    window.addEventListener("scroll", updateVisibility);
-    // リサイズ時にも閾値を再計算
-    window.addEventListener("resize", updateVisibility);
-  } else {
-    // その他ページ：読み込み時から表示
-    info4col.classList.add("visible");
-  }
-});
+    const info3col = document.querySelector(".info_4col");
+    if (!info3col) return;
+  
+    // トップページとみなすパスを列挙
+    const topPaths = [
+        "/index.html",
+        "/",
+        "/index.php",
+        "/front-page.php",
+        "/asterhouse-test16/", // テストサーバーのルートパス
+        "/asterhouse-test16/index.html", // テストサーバーのindex.html
+        "/asterhouse-test16/index.php", // テストサーバーのindex.php
+        "/asterhouse-test16/front-page.php", // テストサーバーのfront-page.php
+        "/asterhouse2025/", // テストサーバーのルートパス
+        "/asterhouse2025/index.html" // テストサーバーのindex.html
+    ];
+  
+    if ( topPaths.includes(window.location.pathname) ) {
+      // ── トップページの場合 ──
+      // 初期は非表示にしてスクロールで制御
+      info3col.classList.remove("visible");
+      window.addEventListener("scroll", () => {
+        if ((window.scrollY || window.pageYOffset) > 700) {
+          info3col.classList.add("visible");
+        } else {
+          info3col.classList.remove("visible");
+        }
+      });
+    } else {
+      // ── その他のページの場合 ──
+      // 読み込み時から表示
+      info3col.classList.add("visible");
+    }
+  });
 
 
 
 // strengthスマホ用フリック制御（translateX方式）
+
 document.addEventListener('DOMContentLoaded', function() {
-  const slider        = document.getElementById('strengthSlider');
+  const slider = document.getElementById('strengthSlider');
   if (!slider) return;
 
   const container     = slider.closest('.strength-container');
@@ -176,90 +155,83 @@ document.addEventListener('DOMContentLoaded', function() {
   const origSlides    = Array.from(slider.children);
   const count         = origSlides.length;
 
-  let currentIndex    = 1;
+  let currentIndex = 1;
   let slideWidth;
   let isTransitioning = false;
-  let startX          = 0;
+  let startX = 0;
 
-  // — クローンを両端に追加 —
+  // —————————————————————————
+  // スライド前後にクローンを配置
   const firstClone = origSlides[0].cloneNode(true);
   const lastClone  = origSlides[count - 1].cloneNode(true);
   slider.appendChild(firstClone);
   slider.insertBefore(lastClone, slider.firstChild);
 
-  // — スライダー幅・位置の初期化／リセット —
+  // —————————————————————————
+  // 幅・位置をリセット
   function setSliderDimensions() {
     slideWidth = container.clientWidth;
+    // 全体幅：(実スライド数 + 2) × 幅
     slider.style.width = `${(count + 2) * slideWidth}px`;
-
-    slider.querySelectorAll('li').forEach(li => {
+    // 各スライド幅を設定
+    Array.from(slider.children).forEach(li => {
       li.style.width = `${slideWidth}px`;
       li.style.flex  = '0 0 auto';
     });
-
-    // 無アニメで現在位置へ
-    slider.style.transition = 'none';
-    slider.style.transform  = `translateX(${-currentIndex * slideWidth}px)`;
-
-    updateDots();
+    // 初期位置にジャンプ（トランジションなし）
+    jumpTo(currentIndex, false);
   }
 
-  // — ドットの生成・更新 —
+  function jumpTo(index, useTransition = true) {
+    slider.style.transition = useTransition ? 'transform 0.4s ease' : 'none';
+    slider.style.transform  = `translateX(${-index * slideWidth}px)`;
+  }
+
+  // —————————————————————————
+  // ドット生成・更新
   function updateDots() {
     dotsContainer.innerHTML = '';
     for (let i = 1; i <= count; i++) {
       const dot = document.createElement('div');
       dot.className = 'dot' + (i === currentIndex ? ' active' : '');
-      dot.addEventListener('click', () => {
-        if (!isTransitioning) goTo(i);
-      });
+      dot.addEventListener('click', () => goTo(i));
       dotsContainer.appendChild(dot);
     }
   }
 
-  // — スライド移動 —
+  // —————————————————————————
+  // 指定スライドへ移動
   function goTo(index) {
     if (isTransitioning) return;
     isTransitioning = true;
     currentIndex = index;
-
-    slider.style.transition = 'transform 0.4s ease';
-    slider.style.transform  = `translateX(${-currentIndex * slideWidth}px)`;
-
+    jumpTo(currentIndex);
     updateDots();
   }
 
   prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
   nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
 
-  // — ループ処理 —
-  slider.addEventListener('transitionend', e => {
-    if (e.propertyName !== 'transform') return;
-
-    // まず必ずフラグ解除
-    isTransitioning = false;
-
-    // 左端クローン → 本物の最後へ
+  // —————————————————————————
+  // ループ処理
+  slider.addEventListener('transitionend', () => {
+    // 左端（クローン）なら本物の最後へ
     if (currentIndex === 0) {
-      slider.style.transition = 'none';
       currentIndex = count;
-      slider.style.transform  = `translateX(${-currentIndex * slideWidth}px)`;
+      jumpTo(currentIndex, false);
     }
-    // 右端クローン → 本物の先頭へ
+    // 右端（クローン）なら本物の１へ
     else if (currentIndex === count + 1) {
-      slider.style.transition = 'none';
       currentIndex = 1;
-      slider.style.transform  = `translateX(${-currentIndex * slideWidth}px)`;
+      jumpTo(currentIndex, false);
     }
-
+    isTransitioning = false;
     updateDots();
   });
 
-  // — タッチでフリック対応 —
-  slider.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
+  // —————————————————————————
+  // タッチでフリック
+  slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
   slider.addEventListener('touchend', e => {
     const diffX = startX - e.changedTouches[0].clientX;
     if (Math.abs(diffX) > 50) {
@@ -267,16 +239,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, { passive: true });
 
-  // — リサイズ対応（アニメ中は再初期化しない） —
-  window.addEventListener('resize', () => {
-    if (!isTransitioning) {
-      setSliderDimensions();
-    }
-  });
+  // —————————————————————————
+  // リサイズ対応
+  window.addEventListener('resize', setSliderDimensions);
 
-  // — 初回セットアップ —
+  // 初回セットアップ
   setSliderDimensions();
+  updateDots();
 });
+
+
 
 
 // dlラインアニメーション
@@ -296,6 +268,50 @@ document.addEventListener("DOMContentLoaded", () => {
     items.forEach(item => observer.observe(item));
 });
 
+
+
+
+// ページ読み込み時にアンカーリンクを確認（プライバシーポリシー）
+window.addEventListener('DOMContentLoaded', (event) => {
+    const hash = window.location.hash;
+    if (hash === '#privacy') {
+        const privacyAccordion = document.getElementById('privacy-accordion');
+        if (privacyAccordion) {
+            const content = privacyAccordion.querySelector('.accordion-content');
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+});
+
+
+// svgファイル 発火タイミング処理
+document.addEventListener("DOMContentLoaded", () => {
+    const svgObjects = document.querySelectorAll(
+        ".imgbox__form__reserve object, .imgbox__consul02 object, .imgbox50__company object, .imgbox__sell__spec object"
+    );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const obj = entry.target;
+
+        // 再読み込みしてアニメーションをリセット
+        const currentData = obj.getAttribute("data");
+        obj.setAttribute("data", ""); // 一旦空に
+        obj.setAttribute("data", currentData); // 再設定
+
+        // 一度だけ発火したいなら unobserve
+        observer.unobserve(obj);
+      }
+    });
+  }, {
+    threshold: 0.5 // 50%以上見えたら発火
+  });
+
+  svgObjects.forEach(obj => {
+    observer.observe(obj);
+  });
+});
 
 
 // Modelアイコンsvgファイル 発火タイミング処理
@@ -318,142 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
   observer.observe(svg);
 });
 
-
-// 相談無料アイコンsvgファイル 発火タイミング処理
-document.addEventListener('DOMContentLoaded', () => {
-  const svg = document.querySelector('svg.consulfree');
-  if (!svg) return;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        svg.classList.add('in-view');
-        obs.unobserve(svg);
-      }
-    });
-  }, {
-    root: null,  
-    threshold: 1.0        // 10% 見えたら発火
-  });
-
-  observer.observe(svg);
-});
-
-
-// info_4colと問合せフォームラジオボタンの連動
-document.addEventListener("DOMContentLoaded", function () {
-  // 資料請求
-  var reqLink = document.getElementById("request-link");
-  reqLink.addEventListener("click", function () {
-    var radio = document.querySelector('input[name="inquiry"][value="general"]');
-    if (radio) radio.checked = true;
-  });
-
-  // 相談会予約
-  var consultLink = document.getElementById("consult-link");
-  consultLink.addEventListener("click", function () {
-    var radio = document.querySelector('input[name="inquiry"][value="consultation"]');
-    if (radio) radio.checked = true;
-  });
-});
-
-
-// 問合せ必須項目エラーメッセージ
-document.addEventListener('DOMContentLoaded', function() {
-  const form         = document.getElementById('mail_form');
-  const confirmation = document.getElementById('confirmation');
-  const resultArea   = document.getElementById('form-result');  
-
-  // --- 既存バリデーション関数群 ---
-  function clearErrors() {
-    form.querySelectorAll('.error-message').forEach(el => el.remove());
-    resultArea.textContent = '';
-  }
-
-  function showError(el, msg) {
-    const p = document.createElement('p');
-    p.className = 'error-message';
-    p.textContent = msg;
-    el.insertAdjacentElement('afterend', p);
-  }
-
-  function validateFields() {
-    clearErrors();
-    let hasError = false;
-
-    // テキスト系チェック
-    form.querySelectorAll('input[required], textarea[required]').forEach(field => {
-      if (!field.value.trim()) {
-        hasError = true;
-        showError(field, '項目を入力してください');
-      }
-    });
-
-    // ラジオグループ
-    const grp = form.querySelector('[data-required-group="inquiry"]');
-    if (grp && grp.querySelectorAll('input[name="inquiry"]:checked').length === 0) {
-      hasError = true;
-      showError(grp, '項目を選択してください');
-    }
-
-    // エラー時スクロール
-    if (hasError) {
-      form.querySelector('.error-message')
-          .scrollIntoView({ behavior:'smooth', block:'center' });
-    }
-    return hasError;
-  }
-  // --- /既存バリデーション関数群 ---
-
-  // フォーム送信時：バリデーション→非同期送信→完了メッセージ
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // 入力ミスがあれば中断
-    if (validateFields()) return;
-
-    // ボタン二重押し防止
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-
-    // フォームを送信
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-    })
-    .then(res => {
-      // 400 以上をエラー、それ未満（200～399）は成功とみなす
-      if (res.status >= 400) {
-        throw new Error('Server Error: ' + res.status);
-      }
-      return res.text();
-    })
-    .then(() => {
-      // 成功時のメッセージ表示
-      const p = document.createElement('p');
-      p.className = 'success-message';
-      p.textContent = '送信が完了しました。内容を確認の上、担当者よりご連絡させていただきます。2~3日返信が無い場合は、再度コンタクトフォームをご記入の上お問合せください。';
-      resultArea.appendChild(p);
-      form.reset();
-    })
-    .catch(err => {
-      console.error(err);
-      // 本当のネットワークエラーだけここに来る
-      const errMsg = document.createElement('p');
-      errMsg.className = 'error-message';
-      errMsg.textContent = '送信中にエラーが発生しました。再度お試しください。';
-      resultArea.appendChild(errMsg);
-    })
-    .finally(() => {
-      form.querySelector('button[type="submit"]').disabled = false;
-    });
-  });
-
-  // チェックボックスクリック時も同じバリデーション
-  confirmation.addEventListener('click', function(e) {
-    if (validateFields()) e.preventDefault();
-  });
-});
 
 
 // フェードアップ
