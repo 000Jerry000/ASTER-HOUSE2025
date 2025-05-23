@@ -1,0 +1,1268 @@
+@charset "UTF-8";
+
+html {
+    scroll-behavior: smooth !important; /* smooth ではなく auto に */
+    
+}
+
+:root {
+    --main_color: #C91933;
+    --this-site-bold: 500;
+}
+.element {
+    font-weight: var(--this-site-bold);
+}
+        
+/* フォント
+================================================*/
+
+.roboto {
+    font-family: "Roboto", 'Arial','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    -webkit-font-smoothing: antialiased;
+}
+.clarendon {
+    font-family: clarendon-text-pro, 'Arial','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+.yughothic {
+    font-family: 'Yu Gothic', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
+    font-weight: 600;
+}
+body {
+    font-size: 1.25vw;
+    line-height: 1.5em;
+    overflow: visible !important;
+    color: #000;
+    font-family: "Roboto", 'Arial','Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-feature-settings: 'palt' 1;
+    word-wrap: break-word;
+    overscroll-behavior:  contain; /* contain; macバウンス無効 */
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+    font-weight: 600;
+    font-feature-settings: 'palt' 1;
+}
+a {text-decoration: none;color: #000;}
+img {width: 100%;}
+
+article,section {
+    overflow: hidden;
+    border-top: 1px solid #000;
+    background: #fff;
+}
+h2 {
+    font-size: 7.46cqw;
+    font-weight: 600;
+    font-family: "Roboto", 'Arial',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: medium;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    -webkit-font-smoothing: antialiased;
+}
+h3 {
+    font-family: "Roboto", 'Arial',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Yu Gothic','Yu Gothic UI','MS ゴシック', sans-serif;
+    font-weight: 600;
+    line-height: 1.5em;
+}
+
+#bg {
+  position: relative;   /* 擬似要素の基点にする */
+}
+
+/* 背景用の疑似要素を固定表示 */
+#bg::before {
+    content: "";
+    position: fixed;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/bg_fix.svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 2150px auto;
+    z-index: -1; 
+  /* 初期状態：左右それぞれ50%ずつ隠す */
+    clip-path: inset(0 50% 0 50%);
+    animation: curtain-open 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+}
+@keyframes curtain-open {
+    from {
+        clip-path: inset(0 50% 0 50%);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    z-index: 10;
+    container-type: inline-size; /* 親要素幅を基準にしたコンテナ */
+}
+.header_page {
+    position: static;
+    display: block;
+}
+.header_page .contact a {
+    display: none;
+}
+
+/* ── ハンバーガーボタン ── */
+.header_page .openbtn1 {
+    display: block !important;
+    position: fixed;
+    top: 6.13cqw;
+    right: 6.13%;
+    width: 6.93cqw;
+    height: 6.93cqw;
+    cursor: pointer;
+    z-index: 10001; /* ナビパネルより前面 */
+}
+    @media (min-width: 600px) {
+        .header_page .openbtn1 {
+            right: calc( (100vw - 600px) / 2  + 25px );
+        }
+    }
+.header_page .openbtn1 span {
+    display: inline-block;
+    position: absolute;
+    width: 26px;
+    height: 1.82px;
+    background-color: var(--main_color);
+    transition: all .4s;
+}
+.header_page .openbtn1 span:nth-of-type(1) { top: 0; }
+.header_page .openbtn1 span:nth-of-type(2) { top: 10px; }
+.header_page .openbtn1 span:nth-of-type(3) { top: 20px; }
+.header_page .openbtn1.active span:nth-of-type(1) {
+    top: 7px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30px;
+    height: 1.8px;
+}
+.header_page .openbtn1.active span:nth-of-type(2) {
+    opacity: 0;
+}
+.header_page .openbtn1.active span:nth-of-type(3) {
+    top: 19px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30px;
+    height: 1.8px;
+}
+
+  /* ── モバイルナビ本体 (#g-nav) ── */
+.header_page #g-nav {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    width: 100% ;
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform .5s ease, visibility .5s ease ;
+    visibility: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    z-index: 10000;
+}
+    @media (min-width: 600px) {
+        .header_page #g-nav {
+            width: 600px;
+                right: calc( (100vw - 600px) / 2  - 8px );
+        }
+    }
+.header_page #g-nav.panelactive {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+  /* ── パネル内ロゴ ── */
+.header_page #g-nav .panel_logo {
+    display: block;;
+    order: 1 !important;
+    flex: 0 0 auto;
+    width: 42.66cqw;
+    max-width: 250px;
+    padding: 4cqw 0 0 5.33cqw;
+    margin: 0 0 70px;
+}
+.header_page #g-nav .panel_logo a img {
+    width: 100%;
+}
+
+  /* ── グローバルナビリスト (#g-navi-list) ── */
+.header_page #g-nav #g-navi-list {
+    order: 2 !important;
+    flex: 0 0 auto;
+    display: block;
+    float: none;
+    width: 100%;
+    height: auto;
+    margin: 0 0 0;      /* 上マージンを 60px に調整 */
+    padding: 0;          /* 横パディングを広めに */
+    overflow-y: auto;
+}
+.header_page #g-nav #g-navi-list ul {
+    display: block;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.header_page #g-nav #g-navi-list li {
+    display: block;
+    border-bottom: 1px solid #000;
+}
+.header_page #g-nav #g-navi-list li:first-child {
+    border-top:  1px solid #000;
+}
+.header_page #g-nav #g-navi-list li a {
+    display: flex;
+    align-items: center;
+    height: 24cqw;
+    max-height: 90px;
+    margin: 0;
+    padding: 0 6.13cqw;
+    font-size: 7.46cqw;   
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: .05em;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+.header_page #g-nav #g-navi-list li a span {
+    position: static;
+    margin: 5px 0 0 auto;
+    font-size: 3.2cqw;
+    text-align: right;
+    font-weight: 600;
+    font-family: 'Yu Gothic',"游ゴシック体",YuGothic,"Yu Gothic Medium","游ゴシック Medium",'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+}
+@media (min-width: 600px) {
+    .header_page #g-nav #g-navi-list li a {
+        font-size: 28px;
+    }
+    .header_page #g-nav #g-navi-list li a span {
+        font-size: 12px;
+    }
+}
+
+.header_page #g-nav .sns {
+    width: 100%;
+    order: 3 !important;
+    flex: 1 1 auto !important;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+.header_page #g-nav .sns ul {
+    display: flex;
+    gap: 6.66cqw; 
+    justify-content: space-between; 
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 24cqw;
+    max-height: 90px;
+
+}
+.header_page #g-nav .sns li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header_page #g-nav .sns li img {
+    width: 40px;
+}
+
+/* トップのheader_page表示による設定 */
+.header_page.visible .logo,
+.header_page.visible .contact {
+    display: none !important;
+}
+/* 2. 表示したい要素 */
+.header_page.visible .openbtn1,
+.header_page.visible #menuPanel,
+.header_page.visible #g-navi-list {
+    display: block !important;
+}
+
+.header_page.visible {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto !important;
+    overflow: visible !important;
+    border-bottom: none !important;
+}
+
+/* スクロールアイコン */
+.scroll-icon {
+    position: absolute;
+    top:180px;
+    left: 10px;
+    width: 2.66cqw;
+    height: 300px;
+    overflow: visible;
+}
+    @media (min-width: 600px) {
+        .scroll-icon {
+            top: 320px;
+            left: calc( (100vw - 600px) / 2  + 25px );
+        }
+    }
+.scroll-icon .line {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 0px;
+    background: #000;
+    opacity: 1; /* 常に表示 */
+    animation: stretch 3.5s linear infinite;
+    animation-delay: 0.5s;
+}
+.scroll-icon .scrolltext {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.93cqw;
+    font-weight: 600;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+}
+    @keyframes stretch {
+        0% {
+            height: 0px;
+            top: 60px;
+        }
+        50% {
+            height: 230px;
+            top: 60px;
+        }
+        100% {
+            height: 0px;
+            top: 100%;
+        }
+    }
+
+.main {
+    width: 100%;
+    height: 198.66cqw;
+    margin: 0;
+    background-image: url('../images/fv_sample.svg');
+    background-position: top center;
+    background-size: cover;
+}
+.logo {
+    width: 42.66%;
+    padding: 4cqw 0 0 5.33cqw;
+}
+.logo img {
+    width: 100%;
+}
+.tag {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.tag .scrolling-wrapper {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+.tag .scroll-list {
+    display: inline-flex;
+    padding: 0.9em 0;
+    margin: 0;
+    animation: scroll 20s linear infinite;
+}
+.tag .scroll-list li {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.8em;
+    font-size: 3.46cqw;
+    line-height: 1em;
+    font-weight: bold;
+    color: #fff;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.link_form {
+    text-align: center;
+    margin: 9.33cqw 0 12cqw;
+}
+.link_form a {
+  display: inline;
+  position: relative;
+  color: var(--main_color);
+  font-size: 4cqw;
+  font-weight: 600;
+  line-height: 1.8em;
+  padding-bottom: 0.05em;
+  text-decoration: none;
+
+  /* 下線用の背景グラデ */
+  background-image: linear-gradient(var(--main_color), var(--main_color));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.266cqw;  /* ← 幅0で待機 */
+}
+
+/* アイコン部分もインラインに */
+.link_form a::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: -1cqw 0 0 0;
+  width: 2.66cqw;
+  height: 5.33cqw;
+  background: url(../images/icon_link_model.svg) no-repeat center/contain;
+}
+/* 2. 下線アニメ定義 */
+@keyframes underline-reveal {
+  to { background-size: 100% 0.266cqw; }
+}
+/* 3. 画面に表示されたら .animated を付与してアニメを走らせる */
+.link_form a.animated {
+  animation: underline-reveal 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.single_sell .thumbnail {
+    width: 100%;
+    aspect-ratio: 3/2;
+    position: relative;
+}
+.single_sell .thumbnail .facade_img {
+    width: 100%;;
+    object-fit: cover;
+}
+.single_sell .thumbnail .model_tag {
+    width: 18.66%;
+    position: absolute;
+    top: 6.13cqw;
+    left: 5.33%;
+}
+.single_sell .thumbnail .icon_facade {
+    width: 24%;
+    position: absolute;
+    bottom: 0;
+    right: 6.66%;
+    transform: translateY(60%);
+}
+.single_sell .wrapper_single_sell .sell_info {
+    width: 100%;
+    float: left;
+    padding: 8cqw 6.13% 22.66cqw;
+}
+.single_sell .wrapper_single_sell .sell_info p {
+    font-size: 3.2cqw;
+    font-family: 'Yu Gothic', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', メイリオ, sans-serif;
+
+}
+.single_sell .wrapper_single_sell .sell_info h3 {
+    margin: 5.33cqw 0 9.33cqw;
+    font-size: 5.33cqw;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+
+.h2_ttl {
+    margin: 0 6.13%  10.66cqw;
+    letter-spacing: 0.05em;
+}
+.h2_ttl span {
+    float: right;
+    font-size: 3.2cqw;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.sell_spec {
+    overflow: hidden;
+    margin-bottom: 21.33cqw;
+    padding: 2.21vw 0 0;
+}
+.sell_spec_area {
+    width: calc(100% - 12.26%);
+    margin: 0 6.13% 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-size: 2.67cqw;
+    text-align: left;
+    font-family: 'Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;    
+}
+.sell_spec_area dt {
+    position: relative;
+    width: 55%;
+    padding: 1.6em 1em 1.6em;
+    letter-spacing: 0.85em;
+    font-weight: bold;
+}
+.sell_spec_area dt span {
+    display: block;
+    float: right;
+    padding: 0 0 0 2em;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    font-family: "Noto Sans JP", 
+        "Yu Gothic", "游ゴシック体", "Yu Gothic Medium",
+        "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
+        Meiryo, sans-serif; 
+    font-weight: 600;
+    position: absolute;
+    left: 9em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sell_spec_area dd {
+    width: calc(50% - 4.5em);
+    padding: 1.6em 0em 1.6em 4em;
+    font-family: "Noto Sans JP", 
+        "Yu Gothic", "游ゴシック体", "Yu Gothic Medium", 
+        "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
+        Meiryo, sans-serif;  
+    font-weight: 600;
+}
+.sell_spec_area .meters {
+    width: 28%;
+    position: relative;
+    padding: 1.6em 0 1.6em 3.2em;
+    text-align: left;
+}
+.sell_spec_area .meters::before {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    top: 50%;
+    left: 0.5em;
+    width: 6.66cqw;
+    height: 4cqw;
+    background-image: url(../images/icon_spec_meters.svg);
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+}
+.sell_spec_area .tsubo {
+    width: 25%;
+    position: relative;
+    padding: 1.6em 0.3em 1.6em 3.5em;
+    text-align: left;
+}
+.sell_spec_area .tsubo::before {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    top: 50%;
+    left: 0.5em;
+    width: 6.5cqw;
+    height: 4cqw;
+    background-image: url(../images/icon_spec_tsubo.svg);
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+}
+.line-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+.line-item.animated .line-wrapper::after {
+    animation: border_anim 1s forwards;
+    animation-delay: 0.7s;
+}
+@keyframes border_anim {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.line-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.line-wrapper::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: #000;
+    transform: scaleY(0.9);
+    transform-origin: top;
+    animation: none;
+}
+
+/* Interior absolute要素 */
+.point1 {
+    margin-top: 10.66cqw;
+}
+.point1_ttl {
+    position: absolute;
+    width: 100%;
+    top: -6.66cqw;
+    left: 0;
+}
+.point2 {
+    margin-top: 8cqw;
+}
+.point2_tag {
+    position: absolute;
+    width: 100%;
+    top: -5.33cqw;
+    left: 0;
+}
+.point2_ttl {
+    position: absolute;
+    width: 100%;
+    top: 29.33cqw;
+    left: 0;
+}
+.point2_text {
+    position: absolute;
+    width: 100%;
+    top: 45.86cqw;
+    left: 0;
+}
+.point3 {
+    margin-top: 24cqw;
+}
+.point3_ttl {
+    position: absolute;
+    width: 100%;
+    top: -6.66cqw;
+    left: 0;
+}
+.point4 {
+    margin-bottom: 29.33cqw;
+}
+.point4_mt40 {
+    margin-top: 10.66cqw;
+}
+.point4_ttl {
+    position: absolute;
+    width: 100%;
+    top: -6.96cqw;
+    left: 0;
+}
+.point4_text {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.consulfree .polygon {
+    stroke-dasharray: 171.25;
+    stroke-dashoffset: 171.25;
+    animation: none;
+}
+/* in-view クラスが付いたらアニメーション */
+.consulfree.in-view .polygon {
+  animation: draw 1s ease-out forwards;
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.consul_image01 {
+    position: absolute;
+    width: 100%;
+    top: -10cqw;
+    left: 0;
+}
+.consul_tag {
+    position: absolute;
+    width: 100%;
+    top: -57cqw;
+    left: 0;
+}
+.consul_image02 {
+    position: absolute;
+    width: 100%;
+    top: -9.33cqw;
+    left: 0;
+}
+.staff_voice {
+    position: absolute;
+    width: 100%;
+    top: -5.86cqw;
+    left: 0;
+}
+.bg_gray {
+    margin-top: 22.66cqw;
+    padding: 0 0 16cqw;
+    background: #dcdcdc;
+}
+.strength-container {
+    position: relative;
+    overflow: hidden;
+}
+.strength {
+    width: 100%;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+}
+.strength li {
+    flex: 0 0 100%;
+    margin: 17.33cqw 0 10cqw;
+    padding: 3.65vw 4.2vw 0;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+.strength li h3 {
+    margin: 20px 0 10px;
+    font-size: 26px;
+    line-height: 1.1em;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+.strength li img {
+    width: 100%;
+    margin: 0 auto;
+}
+.strength li p {
+    width: 65%;
+    margin: 30px 17.5% 10px;
+    font-size: 12px;
+    letter-spacing: -0.05em;
+    font-weight: bold;
+    text-align: justify;
+    text-justify: inter-ideograph;
+}        
+
+.strength::-webkit-scrollbar {
+    display: none;     /* Chrome, Safari */
+}
+.arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 6.13cqw;
+    transform: translateY(-50%);
+    background-image: url('../images/icon_arrow_strengh_left.svg'); /* パスを修正 */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 10px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 6.13cqw;
+    transform: translateY(-50%);
+    background-image: url('../images/icon_arrow_strengh_right.svg'); /* パスを修正 */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 10px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.dots {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 28cqw;
+}
+.dot {
+    width: 2.13cqw;
+    height: 2.13cqw;
+    margin: 0 4cqw;
+    background: #b4b4b5;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.dot.active {
+    background: #000;
+}
+
+.form__contact {
+    width: 100%;
+    padding: 10.66cqw 6.13% 21.33cqw;
+}
+.form-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    align-items: flex-start;
+}
+.note__form {
+    display: inline;
+    float: right;
+    margin-top: -8cqw;
+    font-size: 2.13cqw;
+    text-align: right;
+    font-weight: 600;
+}
+
+.form-item .form-item-label {
+    width: 100%;
+    margin-right: auto;
+    padding: 5.33cqw 0 2.66cqw;
+    font-size: 2.66cqw;
+    font-weight: bold;
+    text-align-last: left;
+    -webkit-text-align-last: left;
+    text-align: left;
+    text-justify: auto;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+    line-height: 1em;
+}
+.form-item .form-item-label::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  line-height: 0; /* 高さを取らない */
+  visibility: hidden; /* 見えないように */
+}
+.form-item .form-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 5cqw;
+    font-size: 3.2cqw;
+    line-height: 1.6em;
+    padding-bottom: 8cqw;
+    gap: 0.5em;
+}
+.form-radio-group .radio-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ネイティブは見えなくしてもヒットはそのまま */
+.form-radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* 見た目の枠 */
+.form-radio-group label {
+    position: relative;
+    padding-left: 1.8em;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+.form-radio-group label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.2em; height: 1.2em;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+/* チェック済みインジケータ */
+.form-radio-group input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 0.3em; top: 50%;
+    transform: translateY(-50%);
+    width: 0.6em; height: 0.6em;
+    background-image: url('../images/icon_check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.form-item .form-date-group {
+    display: flex;
+}
+.form-item .form-item-select-time {
+    width: 27%;
+    padding-left: 1em;
+    text-align: right;
+}
+.form-item .form-item-textarea {
+    width: calc(100% - 13.33cqw);
+    height: 32cqw;
+    margin: 0 6.66cqw 5.33cqw;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1em;
+    flex: 1;
+    font-size: 2.66cqw;
+    background: #efefef;
+}
+.checkbox-label {
+    width: 100%;
+    display: flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.66cqw;
+    font-weight: bold;
+    color: #000;
+    margin: 55px auto 0;
+    cursor: pointer;
+    text-decoration: none;
+    transform: translateY(-50%);
+}
+
+/* チェックボックスのスタイル */
+input[type="checkbox"] {
+    appearance: none;
+    width: 1em;
+    height: 1em;
+    margin-right: 1.04vw;
+    border: 1px solid #000;
+    border-radius: 0.2em;
+    background: #fff;
+    position: relative;
+}
+input[type="checkbox"]:checked::before {
+    content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+    background-image: url(../images/icon_check.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 0.8em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* チェックボックスのラベル（「内容確認しました」のテキスト）のホバー効果 */
+.checkbox-label:hover {
+    text-decoration: none;
+}
+
+.required {
+    position: absolute;
+    top: 10.66cqw;
+    left: 13.5vw;
+    width: 2.4cqw;
+    height: 2.93cqw;
+    background-image: url(../images/icon_required.svg);
+    background-size: contain;
+}
+.required_sp {
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 2cqw;
+    color: var(--main_color);
+}
+input:checked + label::after {
+    opacity: 1;
+}
+input[type="text"],input[type="email"] {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin: 0 6.66cqw 5.33cqw;
+    padding: 0 1em;
+    height: 8.53cqw;
+    flex: 1;
+    width: calc(100% - 13.33cqw);
+    font-size: 2.66cqw;
+    background: #efefef;
+}
+input[type="date"] {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-left: 2.08vw;
+    padding: 0 2.5em 0 1em;
+    height: 3.65vw;
+    width: 100%;
+    font-size: 1.25vw;
+    text-align: right;
+    background: #efefef url('../images/icon_form_calender.svg')
+                no-repeat right 0.78vw center;
+    background-size: 1.56vw;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    z-index: 0;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.56vw;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+/* 日付が選択（valid）されたときもネイティブ文字を復活 */
+input[type="date"]:valid::-webkit-datetime-edit-year-field,
+input[type="date"]:valid::-webkit-datetime-edit-month-field,
+input[type="date"]:valid::-webkit-datetime-edit-day-field,
+input[type="date"]:valid::-webkit-datetime-edit-text {
+    color: initial !important;
+}
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field {
+    color: #999;
+}
+input[type="date"] {
+    color: #000;
+}
+  /* ② ラッパー（擬似プレースホルダー用）- */
+.date-wrap {
+    position: relative;
+    width: 100%;
+}
+  /* ③ 疑似プレースホルダー本体- */
+.date-placeholder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1em;
+    pointer-events: none; 
+    color: #999;
+    transition: opacity .2s;
+    z-index: 1;
+    font-family: 'Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+}
+/* スパン要素を固定幅に */
+.date-placeholder span {
+    flex: none;
+}
+
+/* ④ 「月」「日」の前にスラッシュを自動追加 */
+.date-placeholder .month::before,
+.date-placeholder .day::before {
+    content: "/";      /* 全角スラッシュ */
+    margin: 0 0.25em;   /* スラッシュ前後の余白 */
+}
+
+/* ⑤ 入力済み(valid) or フォーカス時にラベルを隠す */
+.date-input:focus + .date-placeholder,
+.date-input:valid + .date-placeholder {
+    opacity: 0;
+}
+
+/* ⑥ ネイティブの「YYYY‑MM‑DD」テキストを透明化
+        （既存ルールの上書き用に !important を付与） */
+input[type="date"]::-webkit-datetime-edit-year-field,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-text {
+    color: transparent !important;
+    font-family: 'Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+}
+
+  /* ⑦ フォーカス時のみネイティブテキストを復活 */
+    input[type="date"]:focus::-webkit-datetime-edit-year-field,
+    input[type="date"]:focus::-webkit-datetime-edit-month-field,
+    input[type="date"]:focus::-webkit-datetime-edit-day-field,
+    input[type="date"]:focus::-webkit-datetime-edit-text {
+    color: initial !important;
+}
+
+select.form-item-select-property {
+    width: 30%;
+    height: 32px;
+    margin-left: 2.08vw;
+    padding-left: 1em;
+    font-size: 1.25vw;
+    color: #000;
+    border-radius: 6px;
+    background: #efefef;
+    padding-right: 2rem; /* 右側にスペースを作る */
+    appearance: none; /* デフォルトの矢印を消す */
+    background-image: url('../images/icon_form_time.svg'); /* 右側に「＞」を追加 */
+    background-repeat: no-repeat;
+    background-position: right 0.78vw center; /* 右端に配置 */
+    background-size: 1.09vw;
+}
+select.form-item-select-time {
+    width: 30%;
+    height: 32px;
+    margin-left: 60px;
+    font-size: 1.25vw;
+    color: #B5B5B6;
+    background: #efefef;
+    padding-right: 3rem;
+    border-radius: 6px;
+    appearance: none;
+    background-image: url('../images/icon_form_time.svg'); /* 右側に「＞」を追加 */
+    background-repeat: no-repeat;
+    background-position: right 0.78vw center; /* 右端に配置 */
+    background-size: 1.09vw;
+}
+select.form-item-select-time:not(:invalid) {
+    color: #000;
+}
+select.form-item-select-time option[value=""] {
+    color: #B5B5B6;
+}
+input::placeholder, textarea::placeholder {
+    font-family: 'Yu Gothic',"游ゴシック体",YuGothic,”游ゴシック Medium”, “Yu Gothic Medium”,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',メイリオ,sans-serif;
+    font-size: 10px;
+    color: #B5B5B6;
+    font-weight: 500;
+    resize: vertical;
+}
+/* iOS／Chrome for Android などの WebKit 系 */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: #B5B5B6;
+}
+/* Firefox */
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: #B5B5B6;
+}
+/* Edge／IE */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
+  font-size: 1em;
+  font-weight: 500;
+  color: #B5B5B6;
+}
+/* 最新ブラウザ */
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Yu Gothic','游ゴシック体','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',Meiryo,sans‑serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #B5B5B6;
+}
+/* エラーメッセージ */
+.error-message,.success-message {
+    color: var(--main_color);
+    font-size: 0.9rem;
+    margin: -3cqw 0 0 6.5cqw;
+}
+
+.form-btn {
+    position: relative;
+    margin: 25cqw auto 8cqw;
+    padding: 2.66cqw 2.66cqw 2.66cqw 0;
+    width: 26.66cqw;
+    height: 10.66cqw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2cqw;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.5em;
+    border-radius: 100px;
+    border: 1px solid #000;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+}
+.form-btn::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    right: 4cqw;
+    width: 4.8cqw;
+    height: 3.2cqw;
+    transform: translateY(-50%);
+    background-image: url('../images/icon_submit.svg'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease;
+}
+.form-btn:hover {
+    background: #000;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+.form-btn:hover::after {
+    right: 2.5cqw;
+    background-image: url('../images/icon_submit_hover.svg'); 
+    transition: all 0.5s ease;
+}
+
+.info_fix {
+    display: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.info_4col {
+    position: sticky;
+    bottom: 0;
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    height: 16cqw;
+    border-top: solid 1px #000;
+    z-index: 200;  /* z100より全面 */
+}
+.info_4col.visible {
+    display: grid;           /* 再びグリッド表示 */
+}
+.info_4col a {
+    border-right: solid 1px #000;
+}
+.info_4col img {
+    object-fit: cover;
+}
+
+
+
