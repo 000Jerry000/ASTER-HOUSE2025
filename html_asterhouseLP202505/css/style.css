@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 html {
-    scroll-behavior: auto !important; /* smooth ではなく auto に */
+    scroll-behavior: smooth !important; /* smooth ではなく auto に */
     
 }
 
@@ -46,7 +46,6 @@ body {
     font-feature-settings: 'palt' 1;
     word-wrap: break-word;
     overscroll-behavior:  contain; /* contain; macバウンス無効 */
-    overflow-x: hidden;
 }
 
 p {
@@ -323,20 +322,13 @@ h3 {
 /* スクロールアイコン */
 .scroll-icon {
     position: absolute;
-    z-index: 10;
-    container-type: inline-size;
-    top: 3%;
-    left: 10px;
+    top:30%;
+    left: 5%;
     width: 2.66cqw;
-    height: 200px;
+    height: 30%;
     overflow: visible;
+    z-index: 10;
 }
-    @media (min-width: 600px) {
-        .scroll-icon {
-            left: calc( (100vw - 600px) / 2  + 21px );
-        }
-    }
-
 .scroll-icon .line {
     position: absolute;
     top: 0px;
@@ -346,15 +338,15 @@ h3 {
     height: 0px;
     background: #000;
     opacity: 1; /* 常に表示 */
-    animation: stretch 2.5s linear infinite;
+    animation: stretch 3.5s linear infinite;
     animation-delay: 0.5s;
 }
-.scroll-icon .text {
+.scroll-icon .scrolltext {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 16px;
+    font-size: 2.93cqw;
     font-weight: 600;
     -ms-writing-mode: tb-rl;
     writing-mode: vertical-rl;
@@ -363,11 +355,11 @@ h3 {
     @keyframes stretch {
         0% {
             height: 0px;
-            top: 70px;
+            top: 60px;
         }
         50% {
-            height: 150px;
-            top: 70px;
+            height: calc(100% - 60px);
+            top: 60px;
         }
         100% {
             height: 0px;
@@ -377,15 +369,20 @@ h3 {
 
 .main {
     width: 100%;
-    height: 198.66cqw;
+    height: 196.66cqw;
     margin: 0;
     /* background-image: url('../images/fv_sample.svg'); */
     background-position: top center;
     background-size: cover;
+    position: relative;
 }
 .logo {
     width: 42.66%;
     padding: 4cqw 0 0 5.33cqw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 13;
 }
 .logo img {
     width: 100%;
@@ -405,7 +402,7 @@ h3 {
 }
 .tag .scroll-list {
     display: inline-flex;
-    padding: 15px 0;
+    padding: 0.9em 0;
     margin: 0;
     animation: scroll 20s linear infinite;
 }
@@ -413,7 +410,7 @@ h3 {
     position: relative;
     display: inline-block;
     margin: 0 0.8em;
-    font-size: 21px;
+    font-size: 3.46cqw;
     line-height: 1em;
     font-weight: bold;
     color: #fff;
@@ -432,33 +429,40 @@ h3 {
     margin: 9.33cqw 0 12cqw;
 }
 .link_form a {
-    display: inline-block; 
-    position: relative;
-    font-size: 4cqw;
-    font-weight: 600;
-    line-height: 1.8em;
-    color: var(--main_color);
-    padding-bottom: 0.2em;
-    /* 下線スタイル（初期は透明） */
-    text-decoration-line: underline;
-    text-decoration-color: transparent;
-    text-decoration-thickness: 0.266cqw;
-    text-underline-offset: 0.3em;
-    text-decoration-skip-ink: none;
-    animation: underline-color 1s ease forwards;
-    animation-delay: 0.5s;
+  display: inline;
+  position: relative;
+  color: var(--main_color);
+  font-size: 4cqw;
+  font-weight: 600;
+  line-height: 1.8em;
+  padding-bottom: 0.05em;
+  text-decoration: none;
+
+  /* 下線用の背景グラデ */
+  background-image: linear-gradient(var(--main_color), var(--main_color));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.266cqw;  /* ← 幅0で待機 */
 }
+
+/* アイコン部分もインラインに */
 .link_form a::after {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    width: 2.66cqw;
-    height: 5.33cqw;
-    background: url(../images/icon_link_model.svg) no-repeat center/contain;
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: -1cqw 0 0 0;
+  width: 2.66cqw;
+  height: 5.33cqw;
+  background: url(../images/icon_link_model.svg) no-repeat center/contain;
 }
-@keyframes underline-color {
-    from { text-decoration-color: transparent; }
-    to   { text-decoration-color: var(--main_color); }
+/* 2. 下線アニメ定義 */
+@keyframes underline-reveal {
+  to { background-size: 100% 0.266cqw; }
+}
+/* 3. 画面に表示されたら .animated を付与してアニメを走らせる */
+.link_form a.animated {
+  animation: underline-reveal 1s ease forwards;
+  animation-delay: 0.5s;
 }
 
 .single_sell .thumbnail {
@@ -529,7 +533,7 @@ h3 {
 .sell_spec_area dt {
     position: relative;
     width: 55%;
-    padding: 1.15em 1em 1em;
+    padding: 1.6em 1em 1.6em;
     letter-spacing: 0.85em;
     font-weight: bold;
 }
@@ -551,7 +555,7 @@ h3 {
 }
 .sell_spec_area dd {
     width: calc(50% - 4.5em);
-    padding: 1.2em 0em 1.2em 4em;
+    padding: 1.6em 0em 1.6em 4em;
     font-family: "Noto Sans JP", 
         "Yu Gothic", "游ゴシック体", "Yu Gothic Medium", 
         "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
@@ -561,7 +565,7 @@ h3 {
 .sell_spec_area .meters {
     width: 28%;
     position: relative;
-    padding: 1.2em 0 1.2em 3.2em;
+    padding: 1.6em 0 1.6em 3.2em;
     text-align: left;
 }
 .sell_spec_area .meters::before {
@@ -579,7 +583,7 @@ h3 {
 .sell_spec_area .tsubo {
     width: 25%;
     position: relative;
-    padding: 1.2em 0.3em 1.2em 3.5em;
+    padding: 1.6em 0.3em 1.6em 3.5em;
     text-align: left;
 }
 .sell_spec_area .tsubo::before {
@@ -690,6 +694,20 @@ h3 {
     top: 0;
     left: 0;
 }
+
+.consulfree .polygon {
+    stroke-dasharray: 171.25;
+    stroke-dashoffset: 171.25;
+    animation: none;
+}
+/* in-view クラスが付いたらアニメーション */
+.consulfree.in-view .polygon {
+  animation: draw 1s ease-out forwards;
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
 .consul_image01 {
     position: absolute;
     width: 100%;
@@ -817,6 +835,9 @@ h3 {
     align-items: flex-start;
 }
 .note__form {
+    display: inline;
+    float: right;
+    margin-top: -8cqw;
     font-size: 2.13cqw;
     text-align: right;
     font-weight: 600;
@@ -847,35 +868,58 @@ h3 {
 .form-item .form-radio-group {
     display: flex;
     flex-direction: column;
-    margin: 0 0 0 8cqw;
+    margin: 0 0 0 5cqw;
     font-size: 3.2cqw;
-    line-height: 2.3em;
+    line-height: 1.6em;
     padding-bottom: 8cqw;
     gap: 0.5em;
 }
-.form-item .form-radio-group input[type="radio"] {
-    appearance: none;
+.form-radio-group .radio-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ネイティブは見えなくしてもヒットはそのまま */
+.form-radio-group input[type="radio"] {
+    position: absolute;
+    opacity: 0;
     width: 1.2em;
     height: 1.2em;
-    margin: -5px 10px 0 0;
-    border: 1px solid #000;
-    border-radius: 0.2em;
-    background: #fff;
-    position: relative;
+    margin: 0;
+    cursor: pointer;
 }
-.form-item .form-radio-group input[type="radio"]:checked::before {
+
+/* 見た目の枠 */
+.form-radio-group label {
+    position: relative;
+    padding-left: 1.8em;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+.form-radio-group label::before {
     content: "";
-    display: block;
-    width: 1em;
-    height: 1em;
-    background-image: url(../images/icon_check.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 0.8em;
     position: absolute;
+    left: 0;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    width: 1.2em; height: 1.2em;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+/* チェック済みインジケータ */
+.form-radio-group input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 0.3em; top: 50%;
+    transform: translateY(-50%);
+    width: 0.6em; height: 0.6em;
+    background-image: url('../images/icon_check.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 .form-item .form-date-group {
     display: flex;
@@ -949,7 +993,7 @@ input[type="checkbox"]:checked::before {
     left: 13.5vw;
     width: 2.4cqw;
     height: 2.93cqw;
-    background-image: url(../images/icon_required.svg);
+    /* background-image: url(../images/icon_required.svg); */
     background-size: contain;
 }
 .required_sp {
@@ -1147,10 +1191,16 @@ textarea::placeholder {
   font-weight: 500;
   color: #B5B5B6;
 }
+/* エラーメッセージ */
+.error-message,.success-message {
+    color: var(--main_color);
+    font-size: 0.9rem;
+    margin: -3cqw 0 0 6.5cqw;
+}
 
 .form-btn {
     position: relative;
-    margin: 20cqw auto 8cqw;
+    margin: 25cqw auto 8cqw;
     padding: 2.66cqw 2.66cqw 2.66cqw 0;
     width: 26.66cqw;
     height: 10.66cqw;
@@ -1212,52 +1262,6 @@ textarea::placeholder {
 }
 .info_4col img {
     object-fit: cover;
-}
-/* Center and restrict main visual area to max 600px */
-.top_anime-bg_wrap,
-.loading_top_border_wrap {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.logo{
-    position: absolute;
-    z-index: 10;
-    top: 25px;
-    left: calc((100vw - 600px) / 2 + 21px);
-    width: 255px;
-}
-
-@media (max-width: 600px) {
-    .logo{
-        left: 21px;
-        width: 42%;
-    }
-}
-
-/* Optional: Ensure objects inside also don't overflow */
-.top_anime-bg_wrap object,
-.loading_top_border_wrap object {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Show .sp only on screens less than 768px, hide on larger */
-.sp {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .sp {
-    display: block !important;
-  }
-  .pc{
-    display: none !important;
-  }
 }
 
 
