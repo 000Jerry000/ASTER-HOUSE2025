@@ -1,14 +1,5 @@
 <?php
 
-/*--------------------------------
-	Script Name : Responsive Mailform
-	Author : FIRSTSTEP
-	Author URL : http://www.1-firststep.com/
-	Create Date : 2014/3/25
-	Version : 2.3
-	Last Update : 2016/7/6
---------------------------------*/
-
 error_reporting(E_ALL);
 
 mb_language('ja');

@@ -235,7 +235,7 @@
 }
 .top_anime-text-01, .top_anime-text-02, .top_anime-text-03 {
   position: absolute;
-  top: 0%;
+  top: 0;
   left: 0;
   width: 100%;
   /* height: 140%; */
@@ -319,7 +319,7 @@
   .header__top.on {
     background-image: url(../images/main_sp.jpg) !important;
   }
-  .loading_top_border {
+    .loading_top_border {
     background-image: url(../images/top_anime_bg_sp.png) !important;
   }
 
@@ -342,7 +342,7 @@
     aspect-ratio: 375 / 721;
   }
   .top_anime-text-01 {
-    top: 4.25%;
+    top: 42%;
     background-position: top 116.1% left 65%;
     background-size: 80% auto;
     overflow: hidden;
@@ -353,11 +353,11 @@
     background-size: 65% 25%;
     background-repeat: no-repeat;
   }
-  .top_anime-bg_wrap.scroll .top_anime-text-01 object {
+  /* .top_anime-bg_wrap.scroll .top_anime-text-01 object {
     transform: translateY(-50.5%);
-  }
+  } */
   .top_anime-bg_wrap.scroll .top_anime-text-01 {
-    background-position: top 0% left 65%;
+    background-position: top 1.5% left 65%;
     transform: translateY(0);
   }
   .top_anime-text-02 {
@@ -370,13 +370,11 @@
   /* .top_anime-bg_wrap.scroll .top_anime-text-02 object {
     transform: translateY(-50.5%);
   } */
-
   .top_anime-text-03 {
-    top: 7.35%;
-    background-color: #fff;
+    top: 73.25%;
+    background-image: none;
     background-position: top 19.6% left -24%;
     background-size: 54% auto;
-    height: 102%;
   }
   .top_anime-text-03 object {
     background-position: top left;
@@ -425,14 +423,15 @@
     }
     .top_anime-bg_wrap.scroll-01-02 .top_anime-text-03.sp {
       height: unset;
+      z-index: 3;
     }
   
     /* SPでは .scroll で 03 を無効化 */
     .top_anime-bg_wrap.scroll .top_anime-text-03.sp {
       background-position: top 19.6% left -24% !important;
+      transform: none               !important;
       transition: none              !important;
       opacity: 1                    !important;
-      z-index: 3;
     }
     .top_anime-bg_wrap.scroll .top_anime-text-03.sp object {
       transform: none !important;
